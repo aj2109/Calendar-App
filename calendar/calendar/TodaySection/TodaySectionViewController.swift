@@ -11,8 +11,6 @@ import UIKit
 class TodaySectionViewController: UIViewController {
     
     
-    override func viewDidLoad() {
-        view.backgroundColor = .blue
-    }
+    
     
 }

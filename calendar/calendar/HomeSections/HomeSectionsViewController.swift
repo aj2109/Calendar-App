@@ -10,7 +10,16 @@ import UIKit
 
 class HomeSectionsViewController: UIViewController {
     
-    let sections = [TodaySectionViewController(), UpcomingEventsViewController(), CalendarViewController(), SettingsViewController()]
+    lazy var sections: [UIViewController] = {
+        if
+            let sb = UIStoryboard(name: "TodaySectionViewController", bundle: .main) as UIStoryboard?,
+            let todaySectionViewController = sb.instantiateInitialViewController() {
+            let sections = [todaySectionViewController, UpcomingEventsViewController(), CalendarViewController(), SettingsViewController()]
+            return sections
+        } else {
+            return []
+        }
+    }()
     
     let pagingViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         

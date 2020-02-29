@@ -20,6 +20,10 @@
 		052E2B51240AF4600094DE9A /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B50240AF4600094DE9A /* UpcomingEventsViewController.swift */; };
 		052E2B53240AF4690094DE9A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B52240AF4690094DE9A /* CalendarViewController.swift */; };
 		052E2B56240AF56D0094DE9A /* SectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B55240AF56D0094DE9A /* SectionProtocol.swift */; };
+		052E2B59240B0ADC0094DE9A /* TodaySectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 052E2B58240B0ADC0094DE9A /* TodaySectionViewController.storyboard */; };
+		052E2B6E240B14190094DE9A /* Rightland.otf in Resources */ = {isa = PBXBuildFile; fileRef = 052E2B6D240B14190094DE9A /* Rightland.otf */; };
+		052E2B71240B14DE0094DE9A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B70240B14DE0094DE9A /* GradientView.swift */; };
+		052E2B75240B1D6B0094DE9A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B74240B1D6B0094DE9A /* SetupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		052E2B50240AF4600094DE9A /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
 		052E2B52240AF4690094DE9A /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		052E2B55240AF56D0094DE9A /* SectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionProtocol.swift; sourceTree = "<group>"; };
+		052E2B58240B0ADC0094DE9A /* TodaySectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodaySectionViewController.storyboard; sourceTree = "<group>"; };
+		052E2B6D240B14190094DE9A /* Rightland.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rightland.otf; sourceTree = "<group>"; };
+		052E2B70240B14DE0094DE9A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		052E2B74240B1D6B0094DE9A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +117,15 @@
 		052E2B0F240AF2510094DE9A /* calendar */ = {
 			isa = PBXGroup;
 			children = (
-				052E2B10240AF2510094DE9A /* AppDelegate.swift */,
-				052E2B16240AF2510094DE9A /* Main.storyboard */,
+				052E2B72240B1D150094DE9A /* Main */,
 				052E2B47240AF3570094DE9A /* HomeSections */,
+				052E2B45240AF2FB0094DE9A /* TodaySection */,
 				052E2B43240AF2AD0094DE9A /* Calendar */,
 				052E2B46240AF31B0094DE9A /* Settings */,
-				052E2B45240AF2FB0094DE9A /* TodaySection */,
 				052E2B44240AF2B50094DE9A /* UpcomingEvents */,
+				052E2B6F240B14C70094DE9A /* HelperClasses */,
 				052E2B1C240AF2530094DE9A /* Assets.xcassets */,
+				052E2B6D240B14190094DE9A /* Rightland.otf */,
 				052E2B1E240AF2530094DE9A /* LaunchScreen.storyboard */,
 				052E2B21240AF2530094DE9A /* Info.plist */,
 				052E2B19240AF2510094DE9A /* calendar.xcdatamodeld */,
@@ -162,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				052E2B4E240AF4540094DE9A /* TodaySectionViewController.swift */,
+				052E2B58240B0ADC0094DE9A /* TodaySectionViewController.storyboard */,
 			);
 			path = TodaySection;
 			sourceTree = "<group>";
@@ -181,6 +191,24 @@
 				052E2B55240AF56D0094DE9A /* SectionProtocol.swift */,
 			);
 			path = HomeSections;
+			sourceTree = "<group>";
+		};
+		052E2B6F240B14C70094DE9A /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				052E2B70240B14DE0094DE9A /* GradientView.swift */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		052E2B72240B1D150094DE9A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				052E2B10240AF2510094DE9A /* AppDelegate.swift */,
+				052E2B16240AF2510094DE9A /* Main.storyboard */,
+				052E2B74240B1D6B0094DE9A /* SetupViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				052E2B20240AF2530094DE9A /* LaunchScreen.storyboard in Resources */,
+				052E2B59240B0ADC0094DE9A /* TodaySectionViewController.storyboard in Resources */,
+				052E2B6E240B14190094DE9A /* Rightland.otf in Resources */,
 				052E2B1D240AF2530094DE9A /* Assets.xcassets in Resources */,
 				052E2B18240AF2510094DE9A /* Main.storyboard in Resources */,
 			);
@@ -318,9 +348,11 @@
 				052E2B4F240AF4540094DE9A /* TodaySectionViewController.swift in Sources */,
 				052E2B51240AF4600094DE9A /* UpcomingEventsViewController.swift in Sources */,
 				052E2B11240AF2510094DE9A /* AppDelegate.swift in Sources */,
+				052E2B75240B1D6B0094DE9A /* SetupViewController.swift in Sources */,
 				052E2B4B240AF4040094DE9A /* HomeSectionsViewController.swift in Sources */,
 				052E2B4D240AF44A0094DE9A /* SettingsViewController.swift in Sources */,
 				052E2B1B240AF2510094DE9A /* calendar.xcdatamodeld in Sources */,
+				052E2B71240B14DE0094DE9A /* GradientView.swift in Sources */,
 				052E2B56240AF56D0094DE9A /* SectionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

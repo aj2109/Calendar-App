@@ -10,7 +10,16 @@ import UIKit
 
 class TodaySectionViewController: UIViewController {
     
+    @IBOutlet weak var avatar: UIImageView!
+    
+    @IBOutlet weak var username: UILabel!
     
     
+    override func viewDidLoad() {
+        if let name = UserDefaults.standard.value(forKey: "NameChoice") as? String, let imageIndex = UserDefaults.standard.value(forKey: "ImageChoice") as? Int {
+            username.text = "Hi \(name)!"
+            avatar.image = SetupViewController.avatarImages[imageIndex]
+        }
+    }
     
 }

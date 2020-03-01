@@ -83,6 +83,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nhk-aA-5vV"/>
                     </view>
+                    <connections>
+                        <outlet property="avatar" destination="tyX-kJ-XHt" id="QBa-n0-nGZ"/>
+                        <outlet property="username" destination="12y-4w-r13" id="fre-Nu-Omf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6c-tB-dH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

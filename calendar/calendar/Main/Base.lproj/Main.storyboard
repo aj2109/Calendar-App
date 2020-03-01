@@ -110,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="CXD-kE-7Jd"/>
                     </view>
                     <connections>
+                        <outlet property="avatarButton" destination="oHx-gk-KHy" id="og8-Ih-40c"/>
                         <outlet property="displayName" destination="YaS-Gh-S6a" id="hsu-95-n2P"/>
                     </connections>
                 </viewController>
@@ -120,7 +121,7 @@
         <!--Home Sections View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeSectionsViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeSectionsViewController" id="BYZ-38-t0r" customClass="HomeSectionsViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

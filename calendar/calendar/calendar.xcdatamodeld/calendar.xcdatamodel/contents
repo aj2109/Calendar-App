@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Calendar" representedClassName="Calendar" syncable="YES" codeGenerationType="class">
+    <entity name="Calendar" representedClassName="Calendar" syncable="YES">
         <relationship name="years" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Year" inverseName="calendar" inverseEntity="Year"/>
     </entity>
-    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Day" representedClassName="Day" syncable="YES">
+        <attribute name="dateNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="day" optional="YES" attributeType="String"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="day" inverseEntity="Event"/>
         <relationship name="month" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Month" inverseName="days" inverseEntity="Month"/>
     </entity>
-    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+    <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="descript" optional="YES" attributeType="String"/>
         <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="events" inverseEntity="Day"/>
     </entity>
-    <entity name="Month" representedClassName="Month" syncable="YES" codeGenerationType="class">
+    <entity name="Month" representedClassName="Month" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="days" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Day" inverseName="month" inverseEntity="Day"/>
         <relationship name="year" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Year" inverseName="months" inverseEntity="Year"/>
     </entity>
-    <entity name="Year" representedClassName="Year" syncable="YES" codeGenerationType="class">
-        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    <entity name="Year" representedClassName="Year" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="calendar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calendar" inverseName="years" inverseEntity="Calendar"/>
         <relationship name="months" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Month" inverseName="year" inverseEntity="Month"/>
     </entity>
     <elements>
+        <element name="Calendar" positionX="-27" positionY="54" width="128" height="58"/>
         <element name="Day" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Event" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Month" positionX="-54" positionY="-9" width="128" height="88"/>
         <element name="Year" positionX="-45" positionY="27" width="128" height="88"/>
-        <element name="Calendar" positionX="-27" positionY="54" width="128" height="58"/>
     </elements>
 </model>

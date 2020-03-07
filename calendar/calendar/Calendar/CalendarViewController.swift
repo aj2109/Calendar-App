@@ -13,15 +13,15 @@ import EventKitUI
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var currentYear: Year?
     var selectedIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupcollectionViews()
+        CoreDataManager.shared.setupData()
     }
     
-    private func setupcollectionViews() {
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return 30

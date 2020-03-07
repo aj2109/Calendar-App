@@ -20,58 +20,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nw-fp-hM9" customClass="GradientView" customModule="calendar" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nw-fp-hM9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="451"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-qC-krc">
-                                        <rect key="frame" x="173.5" y="75" width="67.5" height="62.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Hi!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-qC-krc">
+                                        <rect key="frame" x="173.5" y="100" width="67.5" height="62.5"/>
                                         <fontDescription key="fontDescription" name="Rightland" family="Rightland" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for using the Calendar App! Please enter your name and choose an avatar before we get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIs-62-YaL">
-                                        <rect key="frame" x="8" y="157.5" width="398" height="179.5"/>
-                                        <fontDescription key="fontDescription" name="Rightland" family="Rightland" pointSize="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfs-CJ-Lvr">
+                                        <rect key="frame" x="62.5" y="192.5" width="289.5" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="B2R-A3-WlJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
                                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="40"/>
+                                        </variation>
                                     </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="WIs-62-YaL" firstAttribute="leading" secondItem="4nw-fp-hM9" secondAttribute="leading" constant="8" id="0aW-r8-r68"/>
-                                    <constraint firstItem="WIs-62-YaL" firstAttribute="top" secondItem="tyM-qC-krc" secondAttribute="bottom" constant="20" id="E6b-TS-UOy"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WIs-62-YaL" secondAttribute="bottom" constant="20" id="F7T-db-enc"/>
-                                    <constraint firstItem="tyM-qC-krc" firstAttribute="centerX" secondItem="4nw-fp-hM9" secondAttribute="centerX" id="YtS-W9-5lS"/>
-                                    <constraint firstAttribute="width" secondItem="4nw-fp-hM9" secondAttribute="height" multiplier="207:212" constant="-26.363207547169793" id="bFq-j0-Gh7"/>
-                                    <constraint firstAttribute="trailing" secondItem="WIs-62-YaL" secondAttribute="trailing" constant="8" id="om5-wj-wNV"/>
-                                    <constraint firstItem="tyM-qC-krc" firstAttribute="top" secondItem="4nw-fp-hM9" secondAttribute="top" constant="75" id="rSp-GC-0eO"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksv-pX-zY6">
-                                <rect key="frame" x="0.0" y="451" width="414" height="411"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-Gh-S6a">
-                                        <rect key="frame" x="57" y="156.5" width="300" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iOE-E4-fZp">
+                                        <rect key="frame" x="57" y="257.5" width="300" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="6eJ-oF-a8A"/>
+                                            <constraint firstAttribute="width" constant="300" id="p9O-Zr-Fuu">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="500"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="50" id="zFi-qs-isF">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                                            </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsF-EX-Zzn">
-                                        <rect key="frame" x="100" y="75" width="214" height="31.5"/>
-                                        <fontDescription key="fontDescription" name="Rightland" family="Rightland" pointSize="25"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHx-gk-KHy">
-                                        <rect key="frame" x="109" y="301" width="196" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFO-d5-6gC">
+                                        <rect key="frame" x="82" y="337.5" width="250" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="196" id="CGh-WM-51v"/>
-                                            <constraint firstAttribute="height" constant="60" id="Vyw-J3-DoZ"/>
+                                            <constraint firstAttribute="height" constant="80" id="8uf-3Z-EPa">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="160"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="250" id="GAL-uV-ihF">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                            </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="19"/>
                                         <state key="normal" title="Please choose an avatar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -81,28 +75,59 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="chooseAnAvatar:" destination="RGM-LN-FMu" eventType="touchUpInside" id="i2N-Ga-4np"/>
+                                            <action selector="chooseAnAvatar:" destination="RGM-LN-FMu" eventType="touchUpInside" id="cIw-JZ-NQV"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="YaS-Gh-S6a" firstAttribute="top" secondItem="YsF-EX-Zzn" secondAttribute="bottom" constant="50" id="8gb-Qi-OfT"/>
-                                    <constraint firstItem="oHx-gk-KHy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YaS-Gh-S6a" secondAttribute="bottom" constant="10" id="GnK-OB-gqL"/>
-                                    <constraint firstItem="YsF-EX-Zzn" firstAttribute="top" secondItem="Ksv-pX-zY6" secondAttribute="top" constant="75" id="g54-zS-T05"/>
-                                    <constraint firstItem="YsF-EX-Zzn" firstAttribute="centerX" secondItem="Ksv-pX-zY6" secondAttribute="centerX" id="kfg-FF-ouJ"/>
-                                    <constraint firstItem="oHx-gk-KHy" firstAttribute="centerX" secondItem="Ksv-pX-zY6" secondAttribute="centerX" id="xBI-z3-e4V"/>
-                                    <constraint firstItem="YaS-Gh-S6a" firstAttribute="centerX" secondItem="Ksv-pX-zY6" secondAttribute="centerX" id="zpR-iX-rzd"/>
+                                    <constraint firstItem="PFO-d5-6gC" firstAttribute="centerX" secondItem="iOE-E4-fZp" secondAttribute="centerX" id="Nhu-cm-GSo"/>
+                                    <constraint firstItem="tyM-qC-krc" firstAttribute="centerX" secondItem="Pfs-CJ-Lvr" secondAttribute="centerX" id="Px2-eC-NVc"/>
+                                    <constraint firstItem="PFO-d5-6gC" firstAttribute="top" secondItem="iOE-E4-fZp" secondAttribute="bottom" constant="30" id="VYh-HC-RvD">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="500"/>
+                                    </constraint>
+                                    <constraint firstItem="iOE-E4-fZp" firstAttribute="centerX" secondItem="4nw-fp-hM9" secondAttribute="centerX" id="aCk-vA-XGg"/>
+                                    <constraint firstAttribute="width" secondItem="4nw-fp-hM9" secondAttribute="height" multiplier="207:212" constant="-26.363207547169793" id="bFq-j0-Gh7"/>
+                                    <constraint firstItem="Pfs-CJ-Lvr" firstAttribute="centerX" secondItem="iOE-E4-fZp" secondAttribute="centerX" id="cX1-mv-Bkr"/>
+                                    <constraint firstItem="Pfs-CJ-Lvr" firstAttribute="top" secondItem="tyM-qC-krc" secondAttribute="bottom" constant="30" id="jIA-2t-KjV">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                    <constraint firstItem="iOE-E4-fZp" firstAttribute="top" secondItem="Pfs-CJ-Lvr" secondAttribute="bottom" constant="15" id="rRn-lD-bFF">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                    <constraint firstItem="tyM-qC-krc" firstAttribute="top" secondItem="4nw-fp-hM9" secondAttribute="top" constant="100" id="rSp-GC-0eO">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksv-pX-zY6" customClass="GradientView" customModule="calendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="451" width="414" height="445"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for using the Calendar App! Please enter your name and choose an avatar before we get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08s-wi-w1w">
+                                        <rect key="frame" x="8" y="20" width="398" height="405"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="30"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="08s-wi-w1w" secondAttribute="bottom" constant="20" id="7IW-Qq-gcd"/>
+                                    <constraint firstItem="08s-wi-w1w" firstAttribute="top" secondItem="Ksv-pX-zY6" secondAttribute="top" constant="20" id="Yg8-JO-ccY"/>
+                                    <constraint firstItem="08s-wi-w1w" firstAttribute="leading" secondItem="Ksv-pX-zY6" secondAttribute="leading" constant="8" id="let-uV-05e"/>
+                                    <constraint firstAttribute="trailing" secondItem="08s-wi-w1w" secondAttribute="trailing" constant="8" id="veU-I4-5lS"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="CXD-kE-7Jd" firstAttribute="bottom" secondItem="Ksv-pX-zY6" secondAttribute="bottom" id="27Q-nC-tjb"/>
+                            <constraint firstAttribute="bottom" secondItem="Ksv-pX-zY6" secondAttribute="bottom" id="27Q-nC-tjb"/>
                             <constraint firstItem="Ksv-pX-zY6" firstAttribute="top" secondItem="4nw-fp-hM9" secondAttribute="bottom" id="AS6-9d-rtR"/>
                             <constraint firstItem="4nw-fp-hM9" firstAttribute="top" secondItem="fkZ-X8-7fF" secondAttribute="top" id="KO0-KG-5Av"/>
-                            <constraint firstItem="CXD-kE-7Jd" firstAttribute="bottom" secondItem="oHx-gk-KHy" secondAttribute="bottom" constant="50" id="R5y-aM-5Qj"/>
                             <constraint firstItem="Ksv-pX-zY6" firstAttribute="leading" secondItem="CXD-kE-7Jd" secondAttribute="leading" id="ZoU-Dq-UI7"/>
+                            <constraint firstItem="Ksv-pX-zY6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PFO-d5-6gC" secondAttribute="bottom" constant="20" id="hi2-e1-Ngx"/>
                             <constraint firstItem="4nw-fp-hM9" firstAttribute="leading" secondItem="CXD-kE-7Jd" secondAttribute="leading" id="py4-W6-ShP"/>
                             <constraint firstItem="CXD-kE-7Jd" firstAttribute="trailing" secondItem="Ksv-pX-zY6" secondAttribute="trailing" id="r8V-SF-JhD"/>
                             <constraint firstItem="CXD-kE-7Jd" firstAttribute="trailing" secondItem="4nw-fp-hM9" secondAttribute="trailing" id="weS-3n-PDT"/>
@@ -110,28 +135,13 @@
                         <viewLayoutGuide key="safeArea" id="CXD-kE-7Jd"/>
                     </view>
                     <connections>
-                        <outlet property="avatarButton" destination="oHx-gk-KHy" id="og8-Ih-40c"/>
-                        <outlet property="displayName" destination="YaS-Gh-S6a" id="hsu-95-n2P"/>
+                        <outlet property="avatarButton" destination="PFO-d5-6gC" id="S5h-fB-DHn"/>
+                        <outlet property="displayName" destination="iOE-E4-fZp" id="Ctg-pD-nfx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvd-gZ-oAx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-768.11594202898561" y="116.51785714285714"/>
-        </scene>
-        <!--Home Sections View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="HomeSectionsViewController" id="BYZ-38-t0r" customClass="HomeSectionsViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="115"/>
         </scene>
     </scenes>
 </document>

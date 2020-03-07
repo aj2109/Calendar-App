@@ -20,6 +20,17 @@ class SetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayName.delegate = self
+        if let _ = UserDefaults.standard.value(forKey: "NameChoice") {
+            presentHomeVC()
+        }
+    }
+    
+    private func presentHomeVC() {
+        DispatchQueue.main.async {
+            let homeSectionsViewController = HomeSectionsViewController()
+            homeSectionsViewController.modalPresentationStyle = .fullScreen
+            self.present(homeSectionsViewController, animated: true)
+        }
     }
     
     @IBAction func chooseAnAvatar(_ sender: Any) {
@@ -41,12 +52,21 @@ class SetupViewController: UIViewController {
             avatarCollectionView.register(AvatarCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
             avatarCollectionView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(avatarCollectionView)
-            NSLayoutConstraint.activate([
-                avatarCollectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                avatarCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-                avatarCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-                avatarCollectionView.heightAnchor.constraint(equalToConstant: 400)
-            ])
+            if UIScreen.main.traitCollection.userInterfaceIdiom == .pad {
+                NSLayoutConstraint.activate([
+                    avatarCollectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                    avatarCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    avatarCollectionView.heightAnchor.constraint(equalToConstant: 400),
+                    avatarCollectionView.widthAnchor.constraint(equalToConstant: 600)
+                ])
+            } else {
+                NSLayoutConstraint.activate([
+                    avatarCollectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                    avatarCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+                    avatarCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                    avatarCollectionView.heightAnchor.constraint(equalToConstant: 400)
+                ])
+            }
             avatarCollectionView.delegate = self
             avatarCollectionView.dataSource = self
             avatarCollectionView.alpha = 1
@@ -62,10 +82,7 @@ extension SetupViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UserDefaults.standard.set(displayName.text, forKey: "NameChoice")
         UserDefaults.standard.set(indexPath.row, forKey: "ImageChoice")
-        let sb = UIStoryboard.init(name: "Main", bundle: .main)
-        let vc = sb.instantiateViewController(identifier: "HomeSectionsViewController")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        presentHomeVC() 
     }
     
 }
@@ -90,7 +107,6 @@ extension SetupViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        // begin the search validation prior to starting
         return false
     }
 }

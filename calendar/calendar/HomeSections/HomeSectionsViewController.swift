@@ -12,9 +12,11 @@ class HomeSectionsViewController: UIViewController {
     
     lazy var sections: [UIViewController] = {
         if
-            let sb = UIStoryboard(name: "TodaySectionViewController", bundle: .main) as UIStoryboard?,
-            let todaySectionViewController = sb.instantiateInitialViewController() {
-            let sections = [todaySectionViewController, UpcomingEventsViewController(), CalendarViewController(), SettingsViewController()]
+            let todaySB = UIStoryboard(name: "TodaySectionViewController", bundle: .main) as UIStoryboard?,
+            let todaySectionViewController = todaySB.instantiateInitialViewController(),
+            let calendarSB = UIStoryboard(name: "CalendarViewController", bundle: .main) as UIStoryboard?,
+            let calendarViewController = calendarSB.instantiateInitialViewController() {
+            let sections = [todaySectionViewController, calendarViewController, SettingsViewController()]
             return sections
         } else {
             return []
@@ -31,6 +33,7 @@ class HomeSectionsViewController: UIViewController {
         activateSections()
         setupPageControl()
         setupPager()
+        view.backgroundColor = .white
     }
     
     private func activateSections() {

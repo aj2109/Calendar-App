@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="a1C-1Z-OlD">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="348"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CJc-MY-PNt">
+                <rect key="frame" x="0.0" y="0.0" width="437" height="348"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtu-kE-44a">
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="348"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBq-aT-hLi">
+                                <rect key="frame" x="159" y="52" width="119" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UBq-aT-hLi" firstAttribute="top" secondItem="xtu-kE-44a" secondAttribute="top" constant="52" id="3tn-Rc-9RJ"/>
+                            <constraint firstItem="UBq-aT-hLi" firstAttribute="centerX" secondItem="xtu-kE-44a" secondAttribute="centerX" id="EYO-PH-Xrd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xtu-kE-44a" firstAttribute="top" secondItem="CJc-MY-PNt" secondAttribute="top" id="NqA-kH-3Zf"/>
+                    <constraint firstAttribute="trailing" secondItem="xtu-kE-44a" secondAttribute="trailing" id="Oo0-ot-gH1"/>
+                    <constraint firstItem="xtu-kE-44a" firstAttribute="leading" secondItem="CJc-MY-PNt" secondAttribute="leading" id="gEc-74-pab"/>
+                    <constraint firstAttribute="bottom" secondItem="xtu-kE-44a" secondAttribute="bottom" id="oWd-Bw-BWb"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="437" height="348"/>
+            <point key="canvasLocation" x="-10.869565217391305" y="3.3482142857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>

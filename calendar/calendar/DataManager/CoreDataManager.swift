@@ -12,8 +12,7 @@ import CoreData
 struct CoreDataManager {
     
     static var shared = CoreDataManager()
-    var calendar = Calendar()
-    var years = [Year]()
+    var calendar: Calendar?
     
     func setupData() {
         let context = getContext()
@@ -41,15 +40,14 @@ struct CoreDataManager {
     }
     
     private func setupYears(years: NSEntityDescription, context: NSManagedObjectContext) {
-        let currentYear = DateManager.getCurrentYear()
+        let currentYear = DateManager.getYear(date: Date())
         let startDate = currentYear - 50
         for yearNumber in 0..<100 {
             let year = Year(entity: years, insertInto: context)
             year.setValue(startDate + yearNumber, forKeyPath: "number")
-            CoreDataManager.shared.calendar.addToYears(year)
             do {
                 try context.save()
-                CoreDataManager.shared.years.append(year)
+                CoreDataManager.shared.calendar!.addToYears(year)
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
@@ -57,35 +55,21 @@ struct CoreDataManager {
     }
     
     private func setupMonths(months: NSEntityDescription, days: NSEntityDescription, context: NSManagedObjectContext) {
-        for year in CoreDataManager.shared.years {
-            for monthNumber in 0..<11 {
+        guard let years = CoreDataManager.shared.calendar!.years.allObjects as? [Year] else {return}
+        for year in years {
+            for monthNumber in 0..<12 {
                 var monthName: MonthString?
-                switch monthNumber {
-                case 0: monthName = MonthString.January
-                case 1: monthName = MonthString.February
-                case 2: monthName = MonthString.March
-                case 3: monthName = MonthString.April
-                case 4: monthName = MonthString.May
-                case 5: monthName = MonthString.June
-                case 6: monthName = MonthString.July
-                case 7: monthName = MonthString.August
-                case 8: monthName = MonthString.September
-                case 9: monthName = MonthString.October
-                case 10: monthName = MonthString.November
-                case 11: monthName = MonthString.December
-                default:
-                    monthName = MonthString(rawValue: "UHOH")
-                }
+                monthName = DateManager.getMonthName(monthNumber: monthNumber)
                 let month = Month(entity: months, insertInto: context)
                 month.name = monthName!.rawValue
-                setupDays(year: year, month: month, monthNumber: monthNumber, daysDescription: days, context: context)
+                month.monthNumber = Int64(monthNumber + 1)
+                setupDays(year: year, month: month, monthNumber: monthNumber + 1, daysDescription: days, context: context)
                 do {
                     try context.save()
                     year.addToMonths(month)
                 } catch let error as NSError {
                     print("Could not save. \(error), \(error.userInfo)")
                 }
-
             }
         }
     }
@@ -107,7 +91,6 @@ struct CoreDataManager {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
     }
     
     private func getContext() -> NSManagedObjectContext {

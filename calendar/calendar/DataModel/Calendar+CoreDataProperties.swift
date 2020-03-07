@@ -17,7 +17,7 @@ extension Calendar {
         return NSFetchRequest<Calendar>(entityName: "Calendar")
     }
 
-    @NSManaged public var years: NSSet?
+    @NSManaged public var years: NSSet
 
 }
 

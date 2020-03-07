@@ -18,9 +18,9 @@ extension Day {
     }
 
     @NSManaged public var dateNumber: Int64
-    @NSManaged public var day: String?
+    @NSManaged public var day: String
     @NSManaged public var events: NSSet?
-    @NSManaged public var month: Month?
+    @NSManaged public var month: Month
 
 }
 

@@ -17,9 +17,10 @@ extension Month {
         return NSFetchRequest<Month>(entityName: "Month")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var days: NSSet?
-    @NSManaged public var year: Year?
+    @NSManaged public var name: String
+    @NSManaged public var days: NSSet
+    @NSManaged public var year: Year
+    @NSManaged public var monthNumber: Int64
 
 }
 

@@ -18,8 +18,8 @@ extension Year {
     }
 
     @NSManaged public var number: Int64
-    @NSManaged public var calendar: Calendar?
-    @NSManaged public var months: NSSet?
+    @NSManaged public var calendar: Calendar
+    @NSManaged public var months: NSSet
 
 }
 

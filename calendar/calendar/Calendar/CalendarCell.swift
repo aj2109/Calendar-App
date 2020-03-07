@@ -95,11 +95,6 @@ class CalendarCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        dateLabel = UILabel()
-        eventOneImage = nil
-        eventTwoImage = nil
-        eventThreeImage = nil
-        eventCount = 0
         backgroundColor = .systemBlue
     }
     

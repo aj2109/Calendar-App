@@ -13,18 +13,29 @@ import EventKitUI
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var currentYear: Year?
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var previousMonthButton: UIButton!
+    @IBOutlet weak var nextMonthButton: UIButton!
+    var currentYear: Year!
+    var currentMonth: Month!
     var selectedIndex: Int?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreDataManager.shared.setupData()
+        let yearAndMonth = DateManager.getCurrentYearAndMonthObject()
+        currentYear = yearAndMonth.0
+        currentMonth = yearAndMonth.1
+        DateManager.currentDate = Date()
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        nextMonthButton.imageView?.image = nextMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        nextMonthButton.imageView?.image?.withTintColor(.white)
+        previousMonthButton.imageView?.image = previousMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        previousMonthButton.imageView?.image?.withTintColor(.white)
     }
     
-
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 30
+        return currentMonth.days.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,7 +66,22 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             selectedIndex = indexPath.row
             collectionView.reloadData()
         }
+    }
+    
+    @IBAction func previousMonthPressed(_ sender: Any) {
+        let yearAndMonth = DateManager.getPreviousYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
+        currentYear = yearAndMonth.0
+        currentMonth = yearAndMonth.1
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        collectionView.reloadData()
+    }
+    
+    @IBAction func nextMonthPressed(_ sender: Any) {
+        let yearAndMonth = DateManager.getNextYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
+        currentYear = yearAndMonth.0
+        currentMonth = yearAndMonth.1
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        collectionView.reloadData()
+    }
+    
 }
-
-}
-

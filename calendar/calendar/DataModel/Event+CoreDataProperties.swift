@@ -19,7 +19,7 @@ extension Event {
 
     @NSManaged public var descript: String?
     @NSManaged public var important: Bool
-    @NSManaged public var title: String?
-    @NSManaged public var day: Day?
+    @NSManaged public var title: String
+    @NSManaged public var day: Day
 
 }

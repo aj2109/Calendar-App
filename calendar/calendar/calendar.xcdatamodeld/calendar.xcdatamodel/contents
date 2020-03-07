@@ -16,6 +16,7 @@
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="events" inverseEntity="Day"/>
     </entity>
     <entity name="Month" representedClassName="Month" syncable="YES">
+        <attribute name="monthNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="days" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Day" inverseName="month" inverseEntity="Day"/>
         <relationship name="year" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Year" inverseName="months" inverseEntity="Year"/>
@@ -29,7 +30,7 @@
         <element name="Calendar" positionX="-27" positionY="54" width="128" height="58"/>
         <element name="Day" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Event" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Month" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Month" positionX="-54" positionY="-9" width="128" height="103"/>
         <element name="Year" positionX="-45" positionY="27" width="128" height="88"/>
     </elements>
 </model>

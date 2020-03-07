@@ -24,7 +24,8 @@
 		052E2B71240B14DE0094DE9A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B70240B14DE0094DE9A /* GradientView.swift */; };
 		052E2B75240B1D6B0094DE9A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B74240B1D6B0094DE9A /* SetupViewController.swift */; };
 		052E2B77240B21790094DE9A /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B76240B21790094DE9A /* AvatarCollectionViewCell.swift */; };
-		053665EC24131A13000887BD /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053665EB24131A13000887BD /* CalendarCell.xib */; };
+		053665EF24140107000887BD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053665EE24140107000887BD /* CoreDataManager.swift */; };
+		053665F1241405FD000887BD /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053665F0241405FD000887BD /* DateManager.swift */; };
 		05E9C6A62413025800579AD7 /* CalendarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E9C6A52413025800579AD7 /* CalendarViewController.storyboard */; };
 		05E9C6A8241307A900579AD7 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6A7241307A900579AD7 /* CalendarCell.swift */; };
 /* End PBXBuildFile section */
@@ -70,7 +71,8 @@
 		052E2B70240B14DE0094DE9A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		052E2B74240B1D6B0094DE9A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		052E2B76240B21790094DE9A /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
-		053665EB24131A13000887BD /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		053665EE24140107000887BD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		053665F0241405FD000887BD /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		05E9C6A52413025800579AD7 /* CalendarViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CalendarViewController.storyboard; path = calendar/TodaySection/CalendarViewController.storyboard; sourceTree = SOURCE_ROOT; };
 		05E9C6A7241307A900579AD7 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				052E2B72240B1D150094DE9A /* Main */,
+				053665ED241400F1000887BD /* CoreDataHandler */,
 				052E2B47240AF3570094DE9A /* HomeSections */,
 				052E2B45240AF2FB0094DE9A /* TodaySection */,
 				052E2B43240AF2AD0094DE9A /* Calendar */,
@@ -163,7 +166,6 @@
 				052E2B52240AF4690094DE9A /* CalendarViewController.swift */,
 				05E9C6A52413025800579AD7 /* CalendarViewController.storyboard */,
 				05E9C6A7241307A900579AD7 /* CalendarCell.swift */,
-				053665EB24131A13000887BD /* CalendarCell.xib */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -218,6 +220,15 @@
 				052E2B74240B1D6B0094DE9A /* SetupViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		053665ED241400F1000887BD /* CoreDataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				053665EE24140107000887BD /* CoreDataManager.swift */,
+				053665F0241405FD000887BD /* DateManager.swift */,
+			);
+			path = CoreDataHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +338,6 @@
 				052E2B20240AF2530094DE9A /* LaunchScreen.storyboard in Resources */,
 				052E2B59240B0ADC0094DE9A /* TodaySectionViewController.storyboard in Resources */,
 				052E2B6E240B14190094DE9A /* Rightland.otf in Resources */,
-				053665EC24131A13000887BD /* CalendarCell.xib in Resources */,
 				05E9C6A62413025800579AD7 /* CalendarViewController.storyboard in Resources */,
 				052E2B1D240AF2530094DE9A /* Assets.xcassets in Resources */,
 				052E2B18240AF2510094DE9A /* Main.storyboard in Resources */,
@@ -361,10 +371,12 @@
 				052E2B11240AF2510094DE9A /* AppDelegate.swift in Sources */,
 				052E2B75240B1D6B0094DE9A /* SetupViewController.swift in Sources */,
 				052E2B77240B21790094DE9A /* AvatarCollectionViewCell.swift in Sources */,
+				053665EF24140107000887BD /* CoreDataManager.swift in Sources */,
 				05E9C6A8241307A900579AD7 /* CalendarCell.swift in Sources */,
 				052E2B4B240AF4040094DE9A /* HomeSectionsViewController.swift in Sources */,
 				052E2B4D240AF44A0094DE9A /* SettingsViewController.swift in Sources */,
 				052E2B1B240AF2510094DE9A /* calendar.xcdatamodeld in Sources */,
+				053665F1241405FD000887BD /* DateManager.swift in Sources */,
 				052E2B71240B14DE0094DE9A /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

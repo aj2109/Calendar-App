@@ -93,7 +93,7 @@ struct CoreDataManager {
         }
     }
     
-    private func getContext() -> NSManagedObjectContext {
+    func getContext() -> NSManagedObjectContext {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
         }

@@ -10,15 +10,47 @@ import UIKit
 import EventKit
 import EventKitUI
 
-class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var addEventButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var previousMonthButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     var currentYear: Year!
     var currentMonth: Month!
+    var currentDay: Day?
     var selectedIndex: Int?
+    
+    lazy var blockerView: UIVisualEffectView = {
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(blurView)
+        NSLayoutConstraint.activate([
+            blurView.topAnchor.constraint(equalTo: view.topAnchor),
+            blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        return blurView
+    }()
+    
+    lazy var eventSelectViewController: UIViewController = {
+        let sb = UIStoryboard(name: "CalendarViewController", bundle: .main)
+        let vc = sb.instantiateViewController(identifier: "AddToCalendar")
+        addChild(vc)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(vc.view)
+        NSLayoutConstraint.activate([
+            vc.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            vc.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            vc.view.heightAnchor.constraint(equalToConstant: 300),
+            vc.view.widthAnchor.constraint(equalToConstant: 400)
+        ])
+        vc.view.layer.cornerRadius = 5
+        return vc
+    }()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +65,63 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         previousMonthButton.imageView?.image = previousMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
         previousMonthButton.imageView?.image?.withTintColor(.white)
     }
+    
+    func addEvent(event: Event) {
+        if let currentDay = currentDay {
+            currentDay.addToEvents(event)
+        }
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+    
+    private func clearAllSelected() {
+        for number in 0..<collectionView.numberOfItems(inSection: 0) {
+            selectedIndex = nil
+            collectionView.cellForItem(at: IndexPath(row: number, section: 0))?.backgroundColor = .systemBlue
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        clearAllSelected()
+    }
+    
+    @IBAction func previousMonthPressed(_ sender: Any) {
+        let yearAndMonth = DateManager.getPreviousYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
+        currentYear = yearAndMonth.0
+        currentMonth = yearAndMonth.1
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        selectedIndex = nil
+        collectionView.reloadData()
+    }
+    
+    @IBAction func nextMonthPressed(_ sender: Any) {
+        let yearAndMonth = DateManager.getNextYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
+        currentYear = yearAndMonth.0
+        currentMonth = yearAndMonth.1
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        selectedIndex = nil
+        collectionView.reloadData()
+    }
+    
+    @IBAction func addEvent(_ sender: Any) {
+        blockerView.alpha = 0.7
+        eventSelectViewController.view.alpha = 1
+    }
+
+    private func showEventAdder() {
+        blockerView.alpha = 0.7
+        eventSelectViewController.view.alpha = 1
+    }
+    
+    private func CloseEventAdder() {
+        blockerView.alpha = 0
+        eventSelectViewController.view.alpha = 0
+    }
+    
+}
+
+extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentMonth.days.count
@@ -62,26 +151,31 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _ = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell {
+        if let _ = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell, let day = currentMonth.days.allObjects[indexPath.row] as? Day {
             selectedIndex = indexPath.row
+            self.currentDay = day
+            addEventButton.alpha = 1
             collectionView.reloadData()
         }
     }
     
-    @IBAction func previousMonthPressed(_ sender: Any) {
-        let yearAndMonth = DateManager.getPreviousYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
-        currentYear = yearAndMonth.0
-        currentMonth = yearAndMonth.1
-        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
-        collectionView.reloadData()
+}
+
+extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentDay?.events?.count ?? 0
     }
     
-    @IBAction func nextMonthPressed(_ sender: Any) {
-        let yearAndMonth = DateManager.getNextYearAndMonthObject(currentYear: currentYear, currentMonth: currentMonth)
-        currentYear = yearAndMonth.0
-        currentMonth = yearAndMonth.1
-        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
-        collectionView.reloadData()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarEventsCell", for: indexPath) as? CalendarEventsCell,
+            let event = currentDay?.events?.allObjects[indexPath.row] as? Event {
+            cell.textLabel?.text = event.title
+            cell.detailTextLabel?.text = event.descript
+            return cell
+        }
+        return UITableViewCell()
     }
-    
+
 }

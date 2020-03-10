@@ -67,8 +67,8 @@ class CalendarCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             eventOneImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5),
             eventOneImage.centerXAnchor.constraint(equalTo: dateLabel.centerXAnchor),
-            eventOneImage.heightAnchor.constraint(equalToConstant: frame.height/6),
-            eventOneImage.widthAnchor.constraint(equalToConstant: frame.height/6)
+            eventOneImage.heightAnchor.constraint(equalToConstant: frame.height/7),
+            eventOneImage.widthAnchor.constraint(equalToConstant: frame.height/7)
         ])
     }
     
@@ -82,8 +82,8 @@ class CalendarCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             eventTwoImage.topAnchor.constraint(equalTo: eventOneImage.bottomAnchor, constant: 5),
             eventTwoImage.centerXAnchor.constraint(equalTo: eventOneImage.centerXAnchor),
-            eventTwoImage.heightAnchor.constraint(equalToConstant: frame.height/6),
-            eventTwoImage.widthAnchor.constraint(equalToConstant: frame.height/6)
+            eventTwoImage.heightAnchor.constraint(equalToConstant: frame.height/7),
+            eventTwoImage.widthAnchor.constraint(equalToConstant: frame.height/7)
         ])
     }
 
@@ -97,8 +97,8 @@ class CalendarCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             eventThreeImage.topAnchor.constraint(equalTo: eventTwoImage.bottomAnchor, constant: 5),
             eventThreeImage.centerXAnchor.constraint(equalTo: eventTwoImage.centerXAnchor),
-            eventThreeImage.heightAnchor.constraint(equalToConstant: frame.height/6),
-            eventThreeImage.widthAnchor.constraint(equalToConstant: frame.height/6),
+            eventThreeImage.heightAnchor.constraint(equalToConstant: frame.height/7),
+            eventThreeImage.widthAnchor.constraint(equalToConstant: frame.height/7),
         ])
     }
     
@@ -114,9 +114,9 @@ class CalendarCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .systemBlue
-        eventOneImage = nil
-        eventTwoImage = nil
-        eventThreeImage = nil
+        eventOneImage?.image = nil
+        eventTwoImage?.image = nil
+        eventThreeImage?.image = nil
         day = nil
     }
     

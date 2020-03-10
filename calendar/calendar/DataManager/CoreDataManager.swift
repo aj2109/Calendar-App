@@ -13,6 +13,7 @@ struct CoreDataManager {
     
     static var shared = CoreDataManager()
     var calendar: Calendar?
+    var today: Day?
     
     func setupData() {
         let context = getContext()
@@ -83,7 +84,7 @@ struct CoreDataManager {
         }
         for number in 0..<numberOfDaysInMonth {
             let day = Day(entity: daysDescription, insertInto: context)
-            day.dateNumber = Int64(number)
+            day.dateNumber = Int64(number + 1)
             month.addToDays(day)
         }
         do {

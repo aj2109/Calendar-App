@@ -119,4 +119,25 @@ struct DateManager {
         return (year, month)
     }
     
+    static func checkIfToday(day: Day) -> Bool {
+        if
+            day.dateNumber == Foundation.Calendar.current.component(.day, from: Date()),
+            day.month.monthNumber == Foundation.Calendar.current.component(.month, from: Date()),
+            day.month.year.number == Foundation.Calendar.current.component(.year, from: Date()) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func getSortedListOfDays(days: [Any]) -> [Day]? {
+        if let days = days as? [Day] {
+            return days.sorted(by: { (dayOne, dayTwo) -> Bool in
+                return dayOne.dateNumber < dayTwo.dateNumber
+            })
+        } else {
+            return nil
+        }
+    }
+    
 }

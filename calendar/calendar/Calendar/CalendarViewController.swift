@@ -72,6 +72,9 @@ class CalendarViewController: UIViewController {
     
     func addEvent(event: Event) {
         if let currentDay = currentDay {
+            if DateManager.checkIfToday(day: currentDay) {
+                CoreDataManager.shared.today?.addToEvents(event)
+            }
             currentDay.addToEvents(event)
         }
         tableView.reloadData()
@@ -131,9 +134,12 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.backgroundColor = .purple
             }
             cell.dateLabel.text = "\(indexPath.row + 1)"
-            if let day = currentMonth?.days.allObjects[indexPath.row] as? Day, let events = day.events {
+            if let sortedDays = DateManager.getSortedListOfDays(days: currentMonth.days.allObjects) {
+                let day = sortedDays[indexPath.row]
                 cell.day = day
-
+                if DateManager.checkIfToday(day: day) {
+                    CoreDataManager.shared.today = day
+                }
             }
             return cell
         }
@@ -153,9 +159,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _ = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell, let day = currentMonth.days.allObjects[indexPath.row] as? Day {
+        if let _ = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell,
+            let sortedDays = DateManager.getSortedListOfDays(days: currentMonth.days.allObjects) {
             selectedIndex = indexPath.row
-            self.currentDay = day
+            self.currentDay = sortedDays[indexPath.row] as Day
             addEventButton.alpha = 1
             collectionView.reloadData()
             tableView.reloadData()

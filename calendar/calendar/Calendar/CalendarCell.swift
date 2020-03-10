@@ -14,7 +14,11 @@ class CalendarCell: UICollectionViewCell {
     var eventOneImage: UIImageView?
     var eventTwoImage: UIImageView?
     var eventThreeImage: UIImageView?
-    var eventCount = 0
+    var day: Day? {
+        didSet {
+            setupImages()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +28,12 @@ class CalendarCell: UICollectionViewCell {
     private func setupCell() {
         backgroundColor = .systemBlue
         setupLabel()
-        switch eventCount {
+        setupImages()
+    }
+    
+    private func setupImages() {
+        guard let day = day else {return}
+        switch day.events?.count {
         case 0:
             break
         case 1:
@@ -54,27 +63,27 @@ class CalendarCell: UICollectionViewCell {
         guard let eventOneImage = eventOneImage else {return}
         eventOneImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(eventOneImage)
-        eventOneImage.image = #imageLiteral(resourceName: "man-1")
+        getImage(imageView: eventOneImage, number: 1)
         NSLayoutConstraint.activate([
             eventOneImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5),
             eventOneImage.centerXAnchor.constraint(equalTo: dateLabel.centerXAnchor),
-            eventOneImage.heightAnchor.constraint(equalToConstant: frame.height/4),
-            eventOneImage.widthAnchor.constraint(equalToConstant: frame.height/4)
+            eventOneImage.heightAnchor.constraint(equalToConstant: frame.height/6),
+            eventOneImage.widthAnchor.constraint(equalToConstant: frame.height/6)
         ])
     }
     
     private func setupEventTwoImage() {
         setupEventOneImage()
         eventTwoImage = UIImageView()
-        guard let eventOneImage = eventOneImage, let eventTwoImage = eventTwoImage  else {return}
+        guard let eventOneImage = eventOneImage, let eventTwoImage = eventTwoImage else {return}
         eventTwoImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(eventTwoImage)
-        eventTwoImage.image = #imageLiteral(resourceName: "man-1")
+        getImage(imageView: eventTwoImage, number: 2)
         NSLayoutConstraint.activate([
             eventTwoImage.topAnchor.constraint(equalTo: eventOneImage.bottomAnchor, constant: 5),
             eventTwoImage.centerXAnchor.constraint(equalTo: eventOneImage.centerXAnchor),
-            eventTwoImage.heightAnchor.constraint(equalToConstant: frame.height/4),
-            eventTwoImage.widthAnchor.constraint(equalToConstant: frame.height/4)
+            eventTwoImage.heightAnchor.constraint(equalToConstant: frame.height/6),
+            eventTwoImage.widthAnchor.constraint(equalToConstant: frame.height/6)
         ])
     }
 
@@ -84,18 +93,31 @@ class CalendarCell: UICollectionViewCell {
         guard let eventTwoImage = eventTwoImage, let eventThreeImage = eventThreeImage else {return}
         eventThreeImage.translatesAutoresizingMaskIntoConstraints = false
         addSubview(eventThreeImage)
-        eventThreeImage.image = #imageLiteral(resourceName: "man-1")
+        getImage(imageView: eventThreeImage, number: 3)
         NSLayoutConstraint.activate([
             eventThreeImage.topAnchor.constraint(equalTo: eventTwoImage.bottomAnchor, constant: 5),
             eventThreeImage.centerXAnchor.constraint(equalTo: eventTwoImage.centerXAnchor),
-            eventThreeImage.heightAnchor.constraint(equalToConstant: frame.height/4),
-            eventThreeImage.widthAnchor.constraint(equalToConstant: frame.height/4),
+            eventThreeImage.heightAnchor.constraint(equalToConstant: frame.height/6),
+            eventThreeImage.widthAnchor.constraint(equalToConstant: frame.height/6),
         ])
+    }
+    
+    private func getImage(imageView: UIImageView, number: Int) {
+        guard let day = day, let event = day.events?.allObjects[number - 1] as? Event else {return}
+        if event.important {
+            imageView.image = #imageLiteral(resourceName: "exclamation-mark")
+        } else {
+            imageView.image = #imageLiteral(resourceName: "tick")
+        }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .systemBlue
+        eventOneImage = nil
+        eventTwoImage = nil
+        eventThreeImage = nil
+        day = nil
     }
     
 }

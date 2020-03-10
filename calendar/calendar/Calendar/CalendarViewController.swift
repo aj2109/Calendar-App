@@ -33,12 +33,16 @@ class CalendarViewController: UIViewController {
             blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideEventAdder(_ :)))
+        blurView.contentView.addGestureRecognizer(tap)
         return blurView
     }()
     
-    lazy var eventSelectViewController: UIViewController = {
-        let sb = UIStoryboard(name: "CalendarViewController", bundle: .main)
-        let vc = sb.instantiateViewController(identifier: "AddToCalendar")
+    lazy var eventSelectViewController: AddToCalendarViewController = {
+        guard let sb = UIStoryboard(name: "CalendarViewController", bundle: .main) as UIStoryboard?,
+            let vc = sb.instantiateViewController(identifier: "AddToCalendar") as? AddToCalendarViewController else {
+                return AddToCalendarViewController()
+        }
         addChild(vc)
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vc.view)
@@ -59,7 +63,7 @@ class CalendarViewController: UIViewController {
         currentYear = yearAndMonth.0
         currentMonth = yearAndMonth.1
         DateManager.currentDate = Date()
-        monthLabel.text = "\(currentMonth.name) \(currentYear.number) "
+        monthLabel.text = "\(currentMonth.name) \(currentYear.number)"
         nextMonthButton.imageView?.image = nextMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
         nextMonthButton.imageView?.image?.withTintColor(.white)
         previousMonthButton.imageView?.image = previousMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
@@ -108,15 +112,9 @@ class CalendarViewController: UIViewController {
         blockerView.alpha = 0.7
         eventSelectViewController.view.alpha = 1
     }
-
-    private func showEventAdder() {
-        blockerView.alpha = 0.7
-        eventSelectViewController.view.alpha = 1
-    }
     
-    private func CloseEventAdder() {
-        blockerView.alpha = 0
-        eventSelectViewController.view.alpha = 0
+    @objc private func hideEventAdder(_ sender: UITapGestureRecognizer? = nil) {
+        eventSelectViewController.hideEventEntry(calendar: self)
     }
     
 }
@@ -133,6 +131,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.backgroundColor = .purple
             }
             cell.dateLabel.text = "\(indexPath.row + 1)"
+            if let day = currentMonth?.days.allObjects[indexPath.row] as? Day, let events = day.events {
+                cell.day = day
+
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -156,6 +158,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             self.currentDay = day
             addEventButton.alpha = 1
             collectionView.reloadData()
+            tableView.reloadData()
         }
     }
     

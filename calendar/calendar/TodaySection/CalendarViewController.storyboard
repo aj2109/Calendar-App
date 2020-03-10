@@ -235,17 +235,37 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNZ-2t-aUM">
+                                <rect key="frame" x="484" y="0.0" width="306" height="76"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtp-w9-rZ9">
+                                        <rect key="frame" x="128.5" y="22.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="importantPressed:" destination="u2N-12-vwM" eventType="valueChanged" id="xF9-ZM-TeH"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="qtp-w9-rZ9" firstAttribute="centerY" secondItem="MNZ-2t-aUM" secondAttribute="centerY" id="2jL-iX-XpQ"/>
+                                    <constraint firstItem="qtp-w9-rZ9" firstAttribute="centerX" secondItem="MNZ-2t-aUM" secondAttribute="centerX" id="Jig-ZP-HNh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36216198900000002" green="0.61712790179999999" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="QPB-JX-W1z" firstAttribute="centerX" secondItem="WOu-cp-YKE" secondAttribute="centerX" id="3D7-Qp-Osa"/>
                             <constraint firstItem="WOu-cp-YKE" firstAttribute="top" secondItem="TYw-Dh-hqc" secondAttribute="top" constant="20" id="3kw-ct-Paj"/>
                             <constraint firstItem="2AU-Ay-Mqa" firstAttribute="leading" secondItem="TYw-Dh-hqc" secondAttribute="leading" constant="20" id="3qf-Dh-s4S"/>
+                            <constraint firstItem="A0P-7i-8JE" firstAttribute="top" secondItem="MNZ-2t-aUM" secondAttribute="bottom" id="4aX-EP-tXJ"/>
+                            <constraint firstItem="MNZ-2t-aUM" firstAttribute="top" secondItem="TYw-Dh-hqc" secondAttribute="top" id="8sJ-Yo-g8d"/>
                             <constraint firstItem="WOu-cp-YKE" firstAttribute="centerX" secondItem="Dxi-8n-nUB" secondAttribute="centerX" id="Axe-q1-5PY"/>
                             <constraint firstItem="A0P-7i-8JE" firstAttribute="centerX" secondItem="Dxi-8n-nUB" secondAttribute="centerX" id="DaE-Q6-FBm"/>
                             <constraint firstItem="A0P-7i-8JE" firstAttribute="leading" secondItem="TYw-Dh-hqc" secondAttribute="leading" constant="20" id="E7m-8N-l6G"/>
+                            <constraint firstItem="MNZ-2t-aUM" firstAttribute="trailing" secondItem="A0P-7i-8JE" secondAttribute="trailing" id="L2m-yl-tdn"/>
                             <constraint firstItem="A0P-7i-8JE" firstAttribute="top" secondItem="WOu-cp-YKE" secondAttribute="bottom" constant="20" id="OJq-J2-uey"/>
                             <constraint firstItem="2AU-Ay-Mqa" firstAttribute="top" secondItem="A0P-7i-8JE" secondAttribute="bottom" constant="20" id="aZb-b4-YaE"/>
+                            <constraint firstItem="MNZ-2t-aUM" firstAttribute="leading" secondItem="WOu-cp-YKE" secondAttribute="trailing" constant="8" symbolic="YES" id="bLc-g2-qtQ"/>
                             <constraint firstItem="QPB-JX-W1z" firstAttribute="top" secondItem="2AU-Ay-Mqa" secondAttribute="bottom" constant="20" id="jsd-Tn-Whe"/>
                             <constraint firstItem="TYw-Dh-hqc" firstAttribute="trailing" secondItem="A0P-7i-8JE" secondAttribute="trailing" constant="20" id="qKw-mh-IkH"/>
                             <constraint firstItem="TYw-Dh-hqc" firstAttribute="trailing" secondItem="2AU-Ay-Mqa" secondAttribute="trailing" constant="20" id="wKX-ba-x1v"/>
@@ -255,6 +275,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptField" destination="2AU-Ay-Mqa" id="ijk-fC-E9N"/>
+                        <outlet property="important" destination="qtp-w9-rZ9" id="D4h-NI-n6S"/>
                         <outlet property="label" destination="WOu-cp-YKE" id="lro-6p-0rb"/>
                         <outlet property="okButton" destination="QPB-JX-W1z" id="Ox6-IR-Wte"/>
                         <outlet property="titleField" destination="A0P-7i-8JE" id="qan-db-q4X"/>
@@ -263,7 +284,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qW-hu-9hj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="xcd-SH-XRV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="596" y="142"/>
+            <point key="canvasLocation" x="595.55555555555554" y="141.66666666666666"/>
         </scene>
     </scenes>
     <resources>

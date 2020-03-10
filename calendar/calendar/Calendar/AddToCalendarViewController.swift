@@ -15,6 +15,7 @@ class AddToCalendarViewController: UIViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptField: UITextField!
     @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var important: UISwitch!
     
     
     @IBAction func okButtonPressed(_ sender: Any) {
@@ -27,6 +28,7 @@ class AddToCalendarViewController: UIViewController {
             if let descriptFieldText = descriptField.text {
                 event.descript = descriptFieldText
             }
+            event.important = important.isOn
             do {
                 try CoreDataManager.shared.getContext().save()
                 calendar.addEvent(event: event)
@@ -37,13 +39,22 @@ class AddToCalendarViewController: UIViewController {
         }
     }
     
-    private func hideEventEntry(calendar: CalendarViewController) {
+    func hideEventEntry(calendar: CalendarViewController) {
         calendar.blockerView.alpha = 0
         self.view.alpha = 0
         titleField.text = ""
         descriptField.text = ""
         titleField.resignFirstResponder()
         descriptField.resignFirstResponder()
+        important.isOn = true
     }
     
+    @IBAction func importantPressed(_ sender: Any) {
+        if UserDefaults.standard.bool(forKey: "importantHelperShown") == false {
+            let alertController = UIAlertController(title: "If your event is important keep this on!", message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+            UserDefaults.standard.set(true, forKey: "importantHelperShown")
+            self.present(alertController, animated: true)
+        }
+    }
 }

@@ -25,6 +25,13 @@
 		050A8F192416DDE800672735 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050A8F082416DDE800672735 /* Roboto-Black.ttf */; };
 		050A8F1A2416DDE800672735 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 050A8F092416DDE800672735 /* Roboto-Medium.ttf */; };
 		050A8F1C2416E87A00672735 /* AddToCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A8F1B2416E87A00672735 /* AddToCalendarViewController.swift */; };
+		0515DAC424198A1600979117 /* ActiveDayDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DAC324198A1600979117 /* ActiveDayDelegateDataSource.swift */; };
+		0515DAC624198AE300979117 /* ActiveMonthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DAC524198AE300979117 /* ActiveMonthDataSource.swift */; };
+		0515DAC824198B3300979117 /* ActiveMonthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DAC724198B3300979117 /* ActiveMonthDelegate.swift */; };
+		0515DACB24198CFB00979117 /* CalendarDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DACA24198CFB00979117 /* CalendarDataManager.swift */; };
+		0515DACD2419900500979117 /* MonthsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DACC2419900500979117 /* MonthsDelegate.swift */; };
+		0515DACF2419900D00979117 /* MonthsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DACE2419900D00979117 /* MonthsDataSource.swift */; };
+		0515DAD1241994FF00979117 /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515DAD0241994FF00979117 /* MonthCell.swift */; };
 		052E2B11240AF2510094DE9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B10240AF2510094DE9A /* AppDelegate.swift */; };
 		052E2B18240AF2510094DE9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 052E2B16240AF2510094DE9A /* Main.storyboard */; };
 		052E2B1B240AF2510094DE9A /* calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B19240AF2510094DE9A /* calendar.xcdatamodeld */; };
@@ -95,6 +102,13 @@
 		050A8F082416DDE800672735 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		050A8F092416DDE800672735 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		050A8F1B2416E87A00672735 /* AddToCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCalendarViewController.swift; sourceTree = "<group>"; };
+		0515DAC324198A1600979117 /* ActiveDayDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveDayDelegateDataSource.swift; sourceTree = "<group>"; };
+		0515DAC524198AE300979117 /* ActiveMonthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMonthDataSource.swift; sourceTree = "<group>"; };
+		0515DAC724198B3300979117 /* ActiveMonthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMonthDelegate.swift; sourceTree = "<group>"; };
+		0515DACA24198CFB00979117 /* CalendarDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDataManager.swift; sourceTree = "<group>"; };
+		0515DACC2419900500979117 /* MonthsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsDelegate.swift; sourceTree = "<group>"; };
+		0515DACE2419900D00979117 /* MonthsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsDataSource.swift; sourceTree = "<group>"; };
+		0515DAD0241994FF00979117 /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
 		052E2B0D240AF2510094DE9A /* calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		052E2B10240AF2510094DE9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		052E2B17240AF2510094DE9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -184,6 +198,43 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		0515DAC02419897700979117 /* Months */ = {
+			isa = PBXGroup;
+			children = (
+				0515DACE2419900D00979117 /* MonthsDataSource.swift */,
+				0515DACC2419900500979117 /* MonthsDelegate.swift */,
+				0515DAD0241994FF00979117 /* MonthCell.swift */,
+			);
+			path = Months;
+			sourceTree = "<group>";
+		};
+		0515DAC1241989A700979117 /* Active Month */ = {
+			isa = PBXGroup;
+			children = (
+				0515DAC524198AE300979117 /* ActiveMonthDataSource.swift */,
+				0515DAC724198B3300979117 /* ActiveMonthDelegate.swift */,
+			);
+			path = "Active Month";
+			sourceTree = "<group>";
+		};
+		0515DAC2241989AD00979117 /* Active Day */ = {
+			isa = PBXGroup;
+			children = (
+				0515DAC324198A1600979117 /* ActiveDayDelegateDataSource.swift */,
+				050A8EF22416D00D00672735 /* CalendarEventsCell.swift */,
+			);
+			path = "Active Day";
+			sourceTree = "<group>";
+		};
+		0515DAC924198C0E00979117 /* AddToCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				050A8F1B2416E87A00672735 /* AddToCalendarViewController.swift */,
+				05E9C6A7241307A900579AD7 /* CalendarCell.swift */,
+			);
+			path = AddToCalendar;
+			sourceTree = "<group>";
+		};
 		052E2B04240AF2510094DE9A = {
 			isa = PBXGroup;
 			children = (
@@ -247,11 +298,12 @@
 		052E2B43240AF2AD0094DE9A /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				0515DAC924198C0E00979117 /* AddToCalendar */,
+				0515DAC2241989AD00979117 /* Active Day */,
+				0515DAC1241989A700979117 /* Active Month */,
+				0515DAC02419897700979117 /* Months */,
 				052E2B52240AF4690094DE9A /* CalendarViewController.swift */,
 				05E9C6A52413025800579AD7 /* CalendarViewController.storyboard */,
-				050A8F1B2416E87A00672735 /* AddToCalendarViewController.swift */,
-				05E9C6A7241307A900579AD7 /* CalendarCell.swift */,
-				050A8EF22416D00D00672735 /* CalendarEventsCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -311,6 +363,7 @@
 		0536660B241416A6000887BD /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				0515DACA24198CFB00979117 /* CalendarDataManager.swift */,
 				053665EE24140107000887BD /* CoreDataManager.swift */,
 				053665F0241405FD000887BD /* DateManager.swift */,
 			);
@@ -495,12 +548,15 @@
 				052E2B53240AF4690094DE9A /* CalendarViewController.swift in Sources */,
 				052E2B4F240AF4540094DE9A /* TodaySectionViewController.swift in Sources */,
 				052E2B51240AF4600094DE9A /* UpcomingEventsViewController.swift in Sources */,
+				0515DAC624198AE300979117 /* ActiveMonthDataSource.swift in Sources */,
 				052E2B11240AF2510094DE9A /* AppDelegate.swift in Sources */,
 				050A8EF32416D00D00672735 /* CalendarEventsCell.swift in Sources */,
 				052E2B75240B1D6B0094DE9A /* SetupViewController.swift in Sources */,
 				054CB1C72414190A0060C644 /* Calendar+CoreDataClass.swift in Sources */,
 				052E2B77240B21790094DE9A /* AvatarCollectionViewCell.swift in Sources */,
+				0515DAD1241994FF00979117 /* MonthCell.swift in Sources */,
 				054CB1CD2414190A0060C644 /* Event+CoreDataClass.swift in Sources */,
+				0515DAC424198A1600979117 /* ActiveDayDelegateDataSource.swift in Sources */,
 				05FA84DF24142816009196F5 /* Day+CoreDataProperties.swift in Sources */,
 				053665EF24140107000887BD /* CoreDataManager.swift in Sources */,
 				054CB1BE241418E70060C644 /* Year+CoreDataProperties.swift in Sources */,
@@ -508,14 +564,18 @@
 				054CB1C82414190A0060C644 /* Calendar+CoreDataProperties.swift in Sources */,
 				052E2B4B240AF4040094DE9A /* HomeSectionsViewController.swift in Sources */,
 				054CB1CE2414190A0060C644 /* Event+CoreDataProperties.swift in Sources */,
+				0515DACD2419900500979117 /* MonthsDelegate.swift in Sources */,
 				052E2B4D240AF44A0094DE9A /* SettingsViewController.swift in Sources */,
 				05FA84DB24141FF8009196F5 /* Months.swift in Sources */,
+				0515DACF2419900D00979117 /* MonthsDataSource.swift in Sources */,
 				05FA84DE24142816009196F5 /* Day+CoreDataClass.swift in Sources */,
 				054CB1BD241418E70060C644 /* Year+CoreDataClass.swift in Sources */,
 				052E2B1B240AF2510094DE9A /* calendar.xcdatamodeld in Sources */,
 				054CB1CA2414190A0060C644 /* Month+CoreDataProperties.swift in Sources */,
+				0515DAC824198B3300979117 /* ActiveMonthDelegate.swift in Sources */,
 				053665F1241405FD000887BD /* DateManager.swift in Sources */,
 				054CB1C92414190A0060C644 /* Month+CoreDataClass.swift in Sources */,
+				0515DACB24198CFB00979117 /* CalendarDataManager.swift in Sources */,
 				052E2B71240B14DE0094DE9A /* GradientView.swift in Sources */,
 				050A8F1C2416E87A00672735 /* AddToCalendarViewController.swift in Sources */,
 			);

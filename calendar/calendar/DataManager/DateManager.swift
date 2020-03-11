@@ -140,4 +140,39 @@ struct DateManager {
         }
     }
     
+    static func getSortedListOfMonths(months: [Any]) -> [Month]? {
+        if let months = months as? [Month] {
+            return months.sorted(by: { (monthOne, monthTwo) -> Bool in
+                return monthOne.monthNumber < monthTwo.monthNumber
+            })
+        } else {
+            return nil
+        }
+    }
+    
+    static func getSortedListOfYears(years: [Any]) -> [Year]? {
+        if let years = years as? [Year] {
+            return years.sorted(by: { (yearOne, yearTwo) -> Bool in
+                return yearOne.number < yearTwo.number
+            })
+        } else {
+            return nil
+        }
+    }
+    
+    static func getListOfAllMonths() -> [Month] {
+        var months = [Month]()
+        guard
+            let allYears = CoreDataManager.shared.calendar?.years.allObjects,
+            let sortedYears = DateManager.getSortedListOfYears(years: allYears) else {return []}
+            sortedYears.forEach { (year) in
+            if let monthList = year.months.allObjects as? [Month] {
+                for month in monthList {
+                    months.append(month)
+                }
+            }
+        }
+        return months
+    }
+            
 }

@@ -22,9 +22,20 @@ class MonthCell: UICollectionViewCell {
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
-        collectionView.delegate = CalendarDataManager.shared.activeMonthDelegate
         collectionView.dataSource = CalendarDataManager.shared.activeMonthDataSource
+        collectionView.delegate = CalendarDataManager.shared.activeMonthDelegate
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 50, height: 50)
+        collectionView.setCollectionViewLayout(layout, animated: false)
         return collectionView
     }()
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        backgroundColor = .clear
+        collectionView.backgroundColor = .clear
+        collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "Cell")
+    }
     
 }

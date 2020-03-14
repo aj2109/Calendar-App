@@ -132,6 +132,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
+                                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -140,10 +141,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </collectionViewCell>
                                         </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="3cy-ci-WSC" id="VtY-lv-hHb"/>
-                                            <outlet property="delegate" destination="3cy-ci-WSC" id="xlW-zJ-8df"/>
-                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.36216198900268387" green="0.61712790175509713" blue="0.96620899438858032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

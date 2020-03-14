@@ -32,7 +32,7 @@ class CalendarViewController: UIViewController {
             blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideEventAdder(_ :)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideEventCreator(_ :)))
         blurView.contentView.addGestureRecognizer(tap)
         return blurView
     }()
@@ -135,7 +135,7 @@ class CalendarViewController: UIViewController {
         eventSelectViewController.view.alpha = 1
     }
     
-    @objc private func hideEventAdder(_ sender: UITapGestureRecognizer? = nil) {
+    @objc private func hideEventCreator(_ sender: UITapGestureRecognizer? = nil) {
         eventSelectViewController.hideEventEntry(calendar: self)
     }
     

@@ -16,9 +16,6 @@ class ActiveMonthDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell {
-            if let index = CalendarDataManager.shared.selectedDayIndex, indexPath.row == index {
-                cell.backgroundColor = .purple
-            }
             cell.dateLabel.text = "\(indexPath.row + 1)"
             if let sortedDays = DateManager.getSortedListOfDays(days: CalendarDataManager.shared.currentMonth.days.allObjects) {
                 let day = sortedDays[indexPath.row]
@@ -27,8 +24,10 @@ class ActiveMonthDataSource: NSObject, UICollectionViewDataSource {
                     CoreDataManager.shared.today = day
                 }
             }
+            cell.setupCell()
             return cell
         }
         return UICollectionViewCell()
     }
+    
 }

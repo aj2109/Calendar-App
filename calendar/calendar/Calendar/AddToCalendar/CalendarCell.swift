@@ -11,7 +11,7 @@ import UIKit
 class CalendarCell: UICollectionViewCell {
     
     var dateLabel = UILabel()
-    var eventOneImage: UIImageView?
+    var eventOneImage: UIImageView? //make into array and 1 function TODO
     var eventTwoImage: UIImageView?
     var eventThreeImage: UIImageView?
     var day: Day? {
@@ -20,13 +20,10 @@ class CalendarCell: UICollectionViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupCell()
-    }
-    
-    private func setupCell() {
+    func setupCell() {
         backgroundColor = .systemBlue
+        selectedBackgroundView = UIView(frame: frame)
+        selectedBackgroundView?.backgroundColor = .purple
         setupLabel()
         setupImages()
     }

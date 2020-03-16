@@ -27,7 +27,6 @@ class ActiveMonthDelegate: NSObject, UICollectionViewDelegate, UICollectionViewD
             let sortedDays = DateManager.getSortedListOfDays(days: CalendarDataManager.shared.currentMonth.days.allObjects) {
             CalendarDataManager.shared.currentDay = sortedDays[indexPath.row] as Day
 //            addEventButton.alpha = 1
-//            tableView.reloadData()
         }
     }
     

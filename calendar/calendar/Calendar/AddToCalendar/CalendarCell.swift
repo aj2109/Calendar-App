@@ -11,9 +11,7 @@ import UIKit
 class CalendarCell: UICollectionViewCell {
     
     var dateLabel = UILabel()
-    var eventOneImage: UIImageView? //make into array and 1 function TODO
-    var eventTwoImage: UIImageView?
-    var eventThreeImage: UIImageView?
+    var eventImages: [UIImageView] = []
     var day: Day? {
         didSet {
             setupImages()
@@ -34,11 +32,11 @@ class CalendarCell: UICollectionViewCell {
         case 0:
             break
         case 1:
-            setupEventOneImage()
+            setupEventImages(eventCount: 1)
         case 2:
-            setupEventTwoImage()
+            setupEventImages(eventCount: 2)
         default:
-            setupEventThreeImage()
+            setupEventImages(eventCount: 3)
         }
     }
     
@@ -55,48 +53,28 @@ class CalendarCell: UICollectionViewCell {
         ])
     }
     
-    private func setupEventOneImage() {
-        eventOneImage = UIImageView()
-        guard let eventOneImage = eventOneImage else {return}
-        eventOneImage.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(eventOneImage)
-        getImage(imageView: eventOneImage, number: 1)
-        NSLayoutConstraint.activate([
-            eventOneImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5),
-            eventOneImage.centerXAnchor.constraint(equalTo: dateLabel.centerXAnchor),
-            eventOneImage.heightAnchor.constraint(equalToConstant: frame.height/7),
-            eventOneImage.widthAnchor.constraint(equalToConstant: frame.height/7)
-        ])
-    }
-    
-    private func setupEventTwoImage() {
-        setupEventOneImage()
-        eventTwoImage = UIImageView()
-        guard let eventOneImage = eventOneImage, let eventTwoImage = eventTwoImage else {return}
-        eventTwoImage.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(eventTwoImage)
-        getImage(imageView: eventTwoImage, number: 2)
-        NSLayoutConstraint.activate([
-            eventTwoImage.topAnchor.constraint(equalTo: eventOneImage.bottomAnchor, constant: 5),
-            eventTwoImage.centerXAnchor.constraint(equalTo: eventOneImage.centerXAnchor),
-            eventTwoImage.heightAnchor.constraint(equalToConstant: frame.height/7),
-            eventTwoImage.widthAnchor.constraint(equalToConstant: frame.height/7)
-        ])
-    }
-
-    private func setupEventThreeImage() {
-        setupEventTwoImage()
-        eventThreeImage = UIImageView()
-        guard let eventTwoImage = eventTwoImage, let eventThreeImage = eventThreeImage else {return}
-        eventThreeImage.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(eventThreeImage)
-        getImage(imageView: eventThreeImage, number: 3)
-        NSLayoutConstraint.activate([
-            eventThreeImage.topAnchor.constraint(equalTo: eventTwoImage.bottomAnchor, constant: 5),
-            eventThreeImage.centerXAnchor.constraint(equalTo: eventTwoImage.centerXAnchor),
-            eventThreeImage.heightAnchor.constraint(equalToConstant: frame.height/7),
-            eventThreeImage.widthAnchor.constraint(equalToConstant: frame.height/7),
-        ])
+    private func setupEventImages(eventCount: Int) {
+        for _ in 0..<eventCount {
+            let imageView = UIImageView()
+            eventImages.append(imageView)
+        }
+        for (index, imageView) in eventImages.enumerated() {
+            var topAnchorView = UIView()
+            if index == 0 {
+                topAnchorView = dateLabel
+            } else {
+                topAnchorView = eventImages[index-1]
+            }
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(imageView)
+            getImage(imageView: imageView, number: index)
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: topAnchorView.bottomAnchor, constant: 5),
+                imageView.centerXAnchor.constraint(equalTo: topAnchorView.centerXAnchor),
+                imageView.heightAnchor.constraint(equalToConstant: frame.height/7),
+                imageView.widthAnchor.constraint(equalToConstant: frame.height/7)
+            ])
+        }
     }
     
     private func getImage(imageView: UIImageView, number: Int) {
@@ -111,9 +89,7 @@ class CalendarCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .systemBlue
-        eventOneImage?.image = nil
-        eventTwoImage?.image = nil
-        eventThreeImage?.image = nil
+        eventImages.forEach({$0.image = nil})
         day = nil
     }
     

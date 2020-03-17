@@ -22,6 +22,8 @@ class CalendarCell: UICollectionViewCell {
         backgroundColor = .systemBlue
         selectedBackgroundView = UIView(frame: frame)
         selectedBackgroundView?.backgroundColor = .purple
+        selectedBackgroundView?.layer.cornerRadius = 7.5
+        layer.cornerRadius = 7.5
         setupLabel()
         setupImages()
     }
@@ -78,7 +80,7 @@ class CalendarCell: UICollectionViewCell {
     }
     
     private func getImage(imageView: UIImageView, number: Int) {
-        guard let day = day, let event = day.events?.allObjects[number - 1] as? Event else {return}
+        guard let day = day, let event = day.events?.allObjects[number] as? Event else {return}
         if event.important {
             imageView.image = #imageLiteral(resourceName: "exclamation-mark")
         } else {

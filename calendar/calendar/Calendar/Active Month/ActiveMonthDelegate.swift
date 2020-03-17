@@ -23,10 +23,12 @@ class ActiveMonthDelegate: NSObject, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _ = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell,
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell,
             let sortedDays = DateManager.getSortedListOfDays(days: CalendarDataManager.shared.currentMonth.days.allObjects) {
-            CalendarDataManager.shared.currentDay = sortedDays[indexPath.row] as Day
-//            addEventButton.alpha = 1
+            cell.day = sortedDays[indexPath.row] as Day
+            CalendarDataManager.shared.currentDay = cell.day
+            CalendarDataManager.shared.currentMonth = cell.day?.month
+            CalendarDataManager.shared.currentYear = cell.day?.month.year
         }
     }
     

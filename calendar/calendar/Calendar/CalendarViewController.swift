@@ -16,8 +16,6 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var collectionViewContainer: UIView!
     @IBOutlet weak var addEventButton: UIButton!
     @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var previousMonthButton: UIButton!
-    @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var selectedDayIndex: Int?
@@ -58,16 +56,8 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDates()
-        setupImages()
         setupText()
         setupDelegates()
-    }
-    
-    private func setupImages() {
-        nextMonthButton.imageView?.image = nextMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        nextMonthButton.imageView?.image?.withTintColor(.white)
-        previousMonthButton.imageView?.image = previousMonthButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        previousMonthButton.imageView?.image?.withTintColor(.white)
     }
     
     private func setupDates() {
@@ -96,8 +86,12 @@ class CalendarViewController: UIViewController {
             }
             currentDay.addToEvents(event)
         }
-        tableView.reloadData()
-        //selectedMonthCollectionView.reloadData()
+       tableView.reloadData()
+       reloadActiveDayCell()
+    }
+    
+    private func reloadActiveDayCell() {
+        
     }
     
     private func clearAllSelected() {
@@ -118,7 +112,6 @@ class CalendarViewController: UIViewController {
         CalendarDataManager.shared.currentMonth = yearAndMonth.1
         monthLabel.text = "\(CalendarDataManager.shared.currentMonth.name) \(CalendarDataManager.shared.currentYear.number) "
         selectedDayIndex = nil
-        //selectedMonthCollectionView.reloadData()
     }
     
     @IBAction func nextMonthPressed(_ sender: Any) {
@@ -127,7 +120,6 @@ class CalendarViewController: UIViewController {
         CalendarDataManager.shared.currentMonth = yearAndMonth.1
         monthLabel.text = "\(CalendarDataManager.shared.currentMonth.name) \(CalendarDataManager.shared.currentYear.number) "
         selectedDayIndex = nil
-        //selectedMonthCollectionView.reloadData()
     }
     
     @IBAction func addEvent(_ sender: Any) {

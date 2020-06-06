@@ -163,7 +163,7 @@ struct DateManager {
     static func getListOfAllMonths() -> [Month] {
         var months = [Month]()
         guard
-            let allYears = CoreDataManager.shared.calendar?.years.allObjects,
+            let allYears = CoreDataManager.shared.calendar?.years.allObjects as? [Year],
             let sortedYears = DateManager.getSortedListOfYears(years: allYears) else {return []}
             sortedYears.forEach { (year) in
             if let monthList = year.months.allObjects as? [Month] {
@@ -174,5 +174,5 @@ struct DateManager {
         }
         return months
     }
-            
+    
 }

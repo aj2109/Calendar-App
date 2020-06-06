@@ -11,18 +11,22 @@ import UIKit
 class ActiveMonthDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CalendarDataManager.shared.currentMonth.days.count
+        if let monthCollectionView = collectionView as? MonthCollectionView, let dayCount = monthCollectionView.month?.days.allObjects.count {
+            return dayCount
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CalendarCell {
+        if
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? DayCell,
+            let monthCollectionView = collectionView as? MonthCollectionView,
+            let day = monthCollectionView.month?.days.allObjects[indexPath.row] as? Day {
             cell.dateLabel.text = "\(indexPath.row + 1)"
-            if let sortedDays = DateManager.getSortedListOfDays(days: CalendarDataManager.shared.currentMonth.days.allObjects) {
-                let day = sortedDays[indexPath.row]
-                cell.day = day
-                if DateManager.checkIfToday(day: day) {
-                    CoreDataManager.shared.today = day
-                }
+            cell.day = day
+            if DateManager.checkIfToday(day: day) {
+                CoreDataManager.shared.today = day
             }
             cell.setupCell()
             return cell

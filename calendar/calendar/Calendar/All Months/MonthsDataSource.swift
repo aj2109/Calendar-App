@@ -11,7 +11,7 @@ import UIKit
 class MonthsDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CoreDataManager.shared.calendar!.years.count
+        CoreDataManager.shared.calendar!.years.count * 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

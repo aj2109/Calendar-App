@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarCell: UICollectionViewCell {
+class DayCell: UICollectionViewCell {
     
     var dateLabel = UILabel()
     var eventImages: [UIImageView] = []
@@ -65,11 +65,11 @@ class CalendarCell: UICollectionViewCell {
             if index == 0 {
                 topAnchorView = dateLabel
             } else {
-                topAnchorView = eventImages[index-1]
+                topAnchorView = eventImages[index]
             }
             imageView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(imageView)
-            getImage(imageView: imageView, number: index)
+            getImage(imageView: imageView, number: index - 1)
             NSLayoutConstraint.activate([
                 imageView.topAnchor.constraint(equalTo: topAnchorView.bottomAnchor, constant: 5),
                 imageView.centerXAnchor.constraint(equalTo: topAnchorView.centerXAnchor),

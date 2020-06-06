@@ -30,7 +30,7 @@ class HomeSectionsViewController: UIViewController {
     var index = 0
     
     override func viewDidLoad() {
-        activateSections()
+        //activateSections()
         setupPageControl()
         setupPager()
         view.backgroundColor = .white

@@ -8,9 +8,4 @@
 
 import UIKit
 
-class CalendarEventsCell: UITableViewCell {
-    
-    
-    
-    
-}
+class CalendarEventsCell: UITableViewCell {}

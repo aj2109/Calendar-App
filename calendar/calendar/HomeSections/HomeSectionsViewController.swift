@@ -30,18 +30,11 @@ class HomeSectionsViewController: UIViewController {
     var index = 0
     
     override func viewDidLoad() {
-        activateSections()
         setupPageControl()
         setupPager()
         view.backgroundColor = .white
     }
     
-    private func activateSections() {
-        sections.forEach({ (vc) in
-            let _ = vc.view
-        })
-    }
-        
     private func setupPageControl() {
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false

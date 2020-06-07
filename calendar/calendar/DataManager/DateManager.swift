@@ -10,7 +10,7 @@ import UIKit
 
 struct DateManager {
     
-    static var currentDate = Date()
+    static var todaysDate = Date()
     
     static func workoutDaysInaMonth(year: Int, month: Int) -> Int {
         let dateComponents = DateComponents(year: year, month: month)
@@ -24,7 +24,7 @@ struct DateManager {
         var dateComponents = DateComponents()
         dateComponents.year = newYear
         dateComponents.month = newMonth
-        currentDate = Foundation.Calendar.current.date(from: dateComponents)!
+        todaysDate = Foundation.Calendar.current.date(from: dateComponents)!
     }
     
     static func getYear(previous: Bool = false, next: Bool = false, date: Date) -> Int {
@@ -81,7 +81,7 @@ struct DateManager {
         var year = currentYear
         var month = currentMonth
         if currentMonth.monthNumber == 1 {
-            let previousYear = getYear(previous: true, next: false, date: Foundation.Calendar.current.date(byAdding: .year, value: 0, to: currentDate)!)
+            let previousYear = getYear(previous: true, next: false, date: Foundation.Calendar.current.date(byAdding: .year, value: 0, to: todaysDate)!)
             let years = CoreDataManager.shared.calendar!.years.allObjects as! [Year]
             year = years.filter({Int($0.number) == previousYear}).first!
             let december = 12
@@ -89,7 +89,7 @@ struct DateManager {
             let months = year.months.allObjects as! [Month]
             month = months.filter({$0.name == decemberMonthName.rawValue}).first!
         } else {
-            let previousMonth = getMonth(previous: true, next: false, date: currentDate)
+            let previousMonth = getMonth(previous: true, next: false, date: todaysDate)
             let previousMonthName = getMonthName(monthNumber: previousMonth - 1)!
             let months = year.months.allObjects as! [Month]
             month = months.filter({$0.name == previousMonthName.rawValue}).first!
@@ -102,7 +102,7 @@ struct DateManager {
         var year = currentYear
         var month = currentMonth
         if currentMonth.monthNumber == 12 {
-            let nextYear = getYear(previous: false, next: true, date: currentDate)
+            let nextYear = getYear(previous: false, next: true, date: todaysDate)
             let years = CoreDataManager.shared.calendar!.years.allObjects as! [Year]
             year = years.filter({Int($0.number) == nextYear}).first!
             let january = 1
@@ -110,7 +110,7 @@ struct DateManager {
             let months = year.months.allObjects as! [Month]
             month = months.filter({$0.name == januaryMonthName.rawValue}).first!
         } else {
-            let nextMonth = getMonth(previous: false, next: true, date: currentDate)
+            let nextMonth = getMonth(previous: false, next: true, date: todaysDate)
             let nextMonthName = getMonthName(monthNumber: nextMonth - 1)!
             let months = year.months.allObjects as! [Month]
             month = months.filter({$0.name == nextMonthName.rawValue}).first!
@@ -138,6 +138,41 @@ struct DateManager {
         } else {
             return nil
         }
+    }
+    
+    static func getSortedListOfMonths(months: [Any]) -> [Month]? {
+        if let months = months as? [Month] {
+            return months.sorted(by: { (monthOne, monthTwo) -> Bool in
+                return monthOne.monthNumber < monthTwo.monthNumber
+            })
+        } else {
+            return nil
+        }
+    }
+    
+    static func getSortedListOfYears(years: [Any]) -> [Year]? {
+        if let years = years as? [Year] {
+            return years.sorted(by: { (yearOne, yearTwo) -> Bool in
+                return yearOne.number < yearTwo.number
+            })
+        } else {
+            return nil
+        }
+    }
+    
+    static func getListOfAllMonths() -> [Month] {
+        var months = [Month]()
+        guard
+            let allYears = CoreDataManager.shared.calendar?.years.allObjects as? [Year],
+            let sortedYears = DateManager.getSortedListOfYears(years: allYears) else {return []}
+            sortedYears.forEach { (year) in
+                if let monthList = year.months.allObjects as? [Month], let sortedMonthList = DateManager.getSortedListOfMonths(months: monthList) {
+                for month in sortedMonthList {
+                    months.append(month)
+                }
+            }
+        }
+        return months
     }
     
 }

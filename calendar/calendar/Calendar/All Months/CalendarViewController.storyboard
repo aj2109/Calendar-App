@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cy-ci-WSC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cy-ci-WSC">
     <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +19,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ne-th-USh">
                                 <rect key="frame" x="0.0" y="20" width="810" height="628"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RD-OL-cTf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RD-OL-cTf">
                                         <rect key="frame" x="305" y="20" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Krd-v1-CoO"/>
@@ -29,37 +29,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qN-D7-fKV">
-                                        <rect key="frame" x="760" y="558" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="ndJ-3i-mAk"/>
-                                            <constraint firstAttribute="height" constant="30" id="tzk-ys-YG1"/>
-                                        </constraints>
-                                        <state key="normal" image="rightArrow"/>
-                                        <connections>
-                                            <action selector="nextMonthPressed:" destination="3cy-ci-WSC" eventType="touchUpInside" id="FWu-xh-Gl9"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ4-z7-R3J">
-                                        <rect key="frame" x="20" y="558" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Uvx-ML-AGy"/>
-                                            <constraint firstAttribute="height" constant="30" id="jpP-EW-YF3"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="leftArrow"/>
-                                        <connections>
-                                            <action selector="previousMonthPressed:" destination="3cy-ci-WSC" eventType="touchUpInside" id="oo2-tG-e1X"/>
-                                        </connections>
-                                    </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RMd-dt-ser">
-                                        <rect key="frame" x="67" y="90" width="676" height="498"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RMd-dt-ser">
+                                        <rect key="frame" x="20" y="90" width="770" height="498"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CalendarEventsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalendarEventsCell" textLabel="kXU-t3-LBP" detailTextLabel="L0E-7i-fVE" style="IBUITableViewCellStyleSubtitle" id="gTr-AB-rL9" customClass="CalendarEventsCell" customModule="calendar" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="676" height="55.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="770" height="55.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTr-AB-rL9" id="wDw-xS-lBx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="676" height="55.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="770" height="55.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kXU-t3-LBP">
@@ -82,13 +60,9 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableViewCell>
                                         </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="3cy-ci-WSC" id="Xgk-Dw-awA"/>
-                                            <outlet property="delegate" destination="3cy-ci-WSC" id="WZ0-2v-mHs"/>
-                                        </connections>
                                     </tableView>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw9-f5-gJQ">
-                                        <rect key="frame" x="765" y="35" width="20" height="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw9-f5-gJQ">
+                                        <rect key="frame" x="750" y="35" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="2Ak-G9-8MG"/>
                                             <constraint firstAttribute="height" constant="20" id="ifT-L0-qMp"/>
@@ -101,17 +75,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RMd-dt-ser" secondAttribute="trailing" constant="20" id="0FU-ar-6J2"/>
                                     <constraint firstItem="4RD-OL-cTf" firstAttribute="centerX" secondItem="8ne-th-USh" secondAttribute="centerX" id="78v-cb-abb"/>
-                                    <constraint firstAttribute="bottom" secondItem="8qN-D7-fKV" secondAttribute="bottom" constant="40" id="Hbx-CJ-BnF"/>
-                                    <constraint firstAttribute="trailing" secondItem="8qN-D7-fKV" secondAttribute="trailing" constant="20" id="QVo-hF-wOp"/>
+                                    <constraint firstItem="RMd-dt-ser" firstAttribute="leading" secondItem="8ne-th-USh" secondAttribute="leading" constant="20" id="WIx-XO-OBO"/>
                                     <constraint firstItem="RMd-dt-ser" firstAttribute="top" secondItem="4RD-OL-cTf" secondAttribute="bottom" constant="20" id="XD7-Ow-OYQ"/>
-                                    <constraint firstItem="VZ4-z7-R3J" firstAttribute="leading" secondItem="8ne-th-USh" secondAttribute="leading" constant="20" id="dOC-1L-KIM"/>
-                                    <constraint firstItem="RMd-dt-ser" firstAttribute="leading" secondItem="VZ4-z7-R3J" secondAttribute="trailing" constant="17" id="fiJ-ka-ijH"/>
-                                    <constraint firstItem="Kw9-f5-gJQ" firstAttribute="centerX" secondItem="8qN-D7-fKV" secondAttribute="centerX" id="gdf-rZ-Pl1"/>
-                                    <constraint firstItem="8qN-D7-fKV" firstAttribute="leading" secondItem="RMd-dt-ser" secondAttribute="trailing" constant="17" id="i8m-tx-CCe"/>
                                     <constraint firstAttribute="bottom" secondItem="RMd-dt-ser" secondAttribute="bottom" constant="40" id="lmK-ss-LcM"/>
                                     <constraint firstItem="4RD-OL-cTf" firstAttribute="top" secondItem="8ne-th-USh" secondAttribute="top" constant="20" id="rc6-hE-cTR"/>
-                                    <constraint firstAttribute="bottom" secondItem="VZ4-z7-R3J" secondAttribute="bottom" constant="40" id="tys-Bq-0sJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kw9-f5-gJQ" secondAttribute="trailing" constant="40" id="ukc-cd-gZJ"/>
                                     <constraint firstItem="Kw9-f5-gJQ" firstAttribute="centerY" secondItem="4RD-OL-cTf" secondAttribute="centerY" id="ul9-lm-QHV"/>
                                     <constraint firstAttribute="width" secondItem="8ne-th-USh" secondAttribute="height" multiplier="138:107" id="yHe-Cg-fh9"/>
                                 </constraints>
@@ -119,7 +89,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWh-Ns-TV6">
                                 <rect key="frame" x="0.0" y="628" width="810" height="452"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bCA-Q5-N9K" customClass="WeeklyCalendar" customModule="calendar" customModuleProvider="target">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bCA-Q5-N9K">
                                         <rect key="frame" x="20" y="20" width="770" height="412"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c5d-Hl-GvR">
@@ -129,25 +99,16 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ut3-5Z-4Ue" customClass="CalendarCell" customModule="calendar" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="ut3-5Z-4Ue" customClass="MonthCell" customModule="calendar" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P6s-dD-UGk">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </collectionViewCellContentView>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </collectionViewCell>
                                         </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="3cy-ci-WSC" id="VtY-lv-hHb"/>
-                                            <outlet property="delegate" destination="3cy-ci-WSC" id="xlW-zJ-8df"/>
-                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.36216198900268387" green="0.61712790175509713" blue="0.96620899438858032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -173,10 +134,9 @@
                     </view>
                     <connections>
                         <outlet property="addEventButton" destination="Kw9-f5-gJQ" id="wtg-PU-O1x"/>
-                        <outlet property="collectionView" destination="bCA-Q5-N9K" id="6xe-HK-uef"/>
+                        <outlet property="collectionViewContainer" destination="fWh-Ns-TV6" id="Pnr-mD-ZFx"/>
                         <outlet property="monthLabel" destination="4RD-OL-cTf" id="d4n-EG-G6s"/>
-                        <outlet property="nextMonthButton" destination="8qN-D7-fKV" id="rtv-Sw-lU9"/>
-                        <outlet property="previousMonthButton" destination="VZ4-z7-R3J" id="afy-Rb-tm2"/>
+                        <outlet property="monthsCollectionView" destination="bCA-Q5-N9K" id="Iig-b0-DZL"/>
                         <outlet property="tableView" destination="RMd-dt-ser" id="0KQ-kg-8Jg"/>
                     </connections>
                 </viewController>
@@ -288,8 +248,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="leftArrow" width="512" height="512"/>
         <image name="plus" width="512" height="512"/>
-        <image name="rightArrow" width="512" height="512"/>
     </resources>
 </document>

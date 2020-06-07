@@ -18,6 +18,7 @@ class MonthsDataSource: NSObject, UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? MonthCell {
             let months = DateManager.getListOfAllMonths()
             cell.month = months[indexPath.row]
+            cell.setupCell() 
             return cell
         } else {
             return UICollectionViewCell()

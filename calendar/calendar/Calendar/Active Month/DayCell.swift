@@ -19,13 +19,13 @@ class DayCell: UICollectionViewCell {
     }
     
     func setupCell() {
-        backgroundColor = .systemBlue
         selectedBackgroundView = UIView(frame: frame)
         selectedBackgroundView?.backgroundColor = .purple
         selectedBackgroundView?.layer.cornerRadius = 7.5
         layer.cornerRadius = 7.5
         setupLabel()
         setupImages()
+        backgroundColor = isSelected ? .purple : .systemBlue
     }
     
     private func setupImages() {
@@ -48,7 +48,7 @@ class DayCell: UICollectionViewCell {
         dateLabel.font = UIFont(name: "Rightland", size: 20)
         dateLabel.textAlignment = .center
         NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            dateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             dateLabel.heightAnchor.constraint(equalToConstant: frame.height/2),
             dateLabel.widthAnchor.constraint(equalToConstant: frame.width)
@@ -56,26 +56,29 @@ class DayCell: UICollectionViewCell {
     }
     
     private func setupEventImages(eventCount: Int) {
-        for _ in 0..<eventCount {
+        for index in 0..<eventCount {
             let imageView = UIImageView()
-            eventImages.append(imageView)
-        }
-        for (index, imageView) in eventImages.enumerated() {
-            var topAnchorView = UIView()
-            if index == 0 {
-                topAnchorView = dateLabel
-            } else {
-                topAnchorView = eventImages[index]
-            }
             imageView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(imageView)
-            getImage(imageView: imageView, number: index - 1)
-            NSLayoutConstraint.activate([
-                imageView.topAnchor.constraint(equalTo: topAnchorView.bottomAnchor, constant: 5),
-                imageView.centerXAnchor.constraint(equalTo: topAnchorView.centerXAnchor),
-                imageView.heightAnchor.constraint(equalToConstant: frame.height/7),
-                imageView.widthAnchor.constraint(equalToConstant: frame.height/7)
-            ])
+            getImage(imageView: imageView, number: index)
+            if index == 0 {
+                dateLabel.translatesAutoresizingMaskIntoConstraints = false
+                addSubview(dateLabel)
+                NSLayoutConstraint.activate([
+                    imageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+                    imageView.centerXAnchor.constraint(equalTo: dateLabel.centerXAnchor),
+                    imageView.heightAnchor.constraint(equalToConstant: frame.height/10),
+                    imageView.widthAnchor.constraint(equalToConstant: frame.height/10)
+                ])
+            } else {
+                NSLayoutConstraint.activate([
+                    imageView.topAnchor.constraint(equalTo: eventImages[index-1].bottomAnchor, constant: 5),
+                    imageView.centerXAnchor.constraint(equalTo: eventImages[index-1].centerXAnchor),
+                    imageView.heightAnchor.constraint(equalToConstant: frame.height/10),
+                    imageView.widthAnchor.constraint(equalToConstant: frame.height/10)
+                ])
+            }
+            eventImages.append(imageView)
         }
     }
     
@@ -92,7 +95,10 @@ class DayCell: UICollectionViewCell {
         super.prepareForReuse()
         backgroundColor = .systemBlue
         eventImages.forEach({$0.image = nil})
+        eventImages = []
         day = nil
+        dateLabel.text = nil
+        dateLabel = UILabel()
     }
     
 }

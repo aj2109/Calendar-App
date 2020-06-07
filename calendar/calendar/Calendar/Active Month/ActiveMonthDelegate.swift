@@ -23,12 +23,9 @@ class ActiveMonthDelegate: NSObject, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? DayCell,
-            let sortedDays = DateManager.getSortedListOfDays(days: CalendarDataManager.shared.currentMonth.days.allObjects) {
-            cell.day = sortedDays[indexPath.row] as Day
+        if let cell = collectionView.cellForItem(at: indexPath) as? DayCell, let collectionView = collectionView as? MonthCollectionView {
             CalendarDataManager.shared.currentDay = cell.day
-            CalendarDataManager.shared.currentMonth = cell.day?.month
-            CalendarDataManager.shared.currentYear = cell.day?.month.year
+            NotificationCenter.default.post(Notification(name: Notification.Name("reloadTable")))
         }
     }
     

@@ -7,13 +7,29 @@
 //
 
 import UIKit
- 
+
 class MonthCell: UICollectionViewCell {
     
     var month: Month?
+    var dateLabel: UILabel?
+    var collectionView: MonthCollectionView?
     
-    var dateLabel: UILabel {
-        let label = UILabel()
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        backgroundColor = .clear
+    }
+
+    func setupCell() {
+        setupLabel()
+        setupCollectionView()
+        if let monthName = month?.name, let yearNumber = month?.year.number, let dateLabel = dateLabel {
+            dateLabel.text = "\(monthName) \(yearNumber)"
+        }
+    }
+    
+    private func setupLabel() {
+        dateLabel = UILabel()
+        guard let label = dateLabel else {return}
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -24,16 +40,17 @@ class MonthCell: UICollectionViewCell {
         ])
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 30)
-        return label
     }
     
-    lazy var collectionView: MonthCollectionView = {
-        let collectionView = MonthCollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private func setupCollectionView() {
+        collectionView = MonthCollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        guard let collectionView = collectionView, let dateLabel = dateLabel else {return}
+        collectionView.register(DayCell.self, forCellWithReuseIdentifier: "Cell")
         addSubview(collectionView)
         collectionView.month = month
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 40),
+            collectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 40),
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
@@ -45,23 +62,21 @@ class MonthCell: UICollectionViewCell {
         layout.itemSize = CGSize(width: 50, height: 50)
         collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.isScrollEnabled = false
-        return collectionView
-    }()
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        backgroundColor = .clear
         collectionView.backgroundColor = .clear
-        collectionView.register(DayCell.self, forCellWithReuseIdentifier: "Cell")
-        if let monthName = month?.name, let yearNumber = month?.year.number {
-            dateLabel.text = "\(monthName) \(yearNumber)"
-        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        month = nil
+        collectionView = nil
+        dateLabel?.text = nil
+        dateLabel = nil
     }
     
 }
 
 class MonthCollectionView: UICollectionView {
     
-    var month: Month?
+    weak var month: Month?
     
 }

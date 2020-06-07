@@ -58,6 +58,7 @@ class CalendarViewController: UIViewController {
         setupDates()
         setupText()
         setupDelegates()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name("reloadTable"), object: nil)
     }
     
     private func setupDates() {
@@ -65,11 +66,10 @@ class CalendarViewController: UIViewController {
         let yearAndMonth = DateManager.getCurrentYearAndMonthObject()
         CalendarDataManager.shared.currentYear = yearAndMonth.0
         CalendarDataManager.shared.currentMonth = yearAndMonth.1
-        DateManager.currentDate = Date()
+        DateManager.todaysDate = Date()
     }
     
     private func setupText() {
-        monthLabel.text = "\(CalendarDataManager.shared.currentMonth.name) \(CalendarDataManager.shared.currentYear.number)"
     }
     
     private func setupDelegates() {
@@ -86,40 +86,21 @@ class CalendarViewController: UIViewController {
             }
             currentDay.addToEvents(event)
         }
-       tableView.reloadData()
+       reloadTable()
        reloadActiveDayCell()
     }
     
-    private func reloadActiveDayCell() {
-        
+    @objc private func reloadTable() {
+        tableView.reloadData()
+        setupText()
     }
     
-    private func clearAllSelected() {
-//        for number in 0..<selectedMonthCollectionView.numberOfItems(inSection: 0) {
-//            selectedDayIndex = nil
-//            selectedMonthCollectionView.cellForItem(at: IndexPath(row: number, section: 0))?.backgroundColor = .systemBlue
-//        }
+    private func reloadActiveDayCell() {
+        monthsCollectionView.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        clearAllSelected()
-    }
-    
-    @IBAction func previousMonthPressed(_ sender: Any) {
-        let yearAndMonth = DateManager.getPreviousYearAndMonthObject(currentYear: CalendarDataManager.shared.currentYear, currentMonth: CalendarDataManager.shared.currentMonth)
-        CalendarDataManager.shared.currentYear = yearAndMonth.0
-        CalendarDataManager.shared.currentMonth = yearAndMonth.1
-        monthLabel.text = "\(CalendarDataManager.shared.currentMonth.name) \(CalendarDataManager.shared.currentYear.number) "
-        selectedDayIndex = nil
-    }
-    
-    @IBAction func nextMonthPressed(_ sender: Any) {
-        let yearAndMonth = DateManager.getNextYearAndMonthObject(currentYear: CalendarDataManager.shared.currentYear, currentMonth: CalendarDataManager.shared.currentMonth)
-        CalendarDataManager.shared.currentYear = yearAndMonth.0
-        CalendarDataManager.shared.currentMonth = yearAndMonth.1
-        monthLabel.text = "\(CalendarDataManager.shared.currentMonth.name) \(CalendarDataManager.shared.currentYear.number) "
-        selectedDayIndex = nil
     }
     
     @IBAction func addEvent(_ sender: Any) {

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-struct CoreDataManager {
+class CoreDataManager {
     
     static var shared = CoreDataManager()
     var calendar: Calendar?
@@ -86,6 +86,9 @@ struct CoreDataManager {
             let day = Day(entity: daysDescription, insertInto: context)
             day.dateNumber = Int64(number + 1)
             month.addToDays(day)
+            if DateManager.checkIfToday(day: day) {
+                self.today = day
+            }
         }
         do {
             try context.save()

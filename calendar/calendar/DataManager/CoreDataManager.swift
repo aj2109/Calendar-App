@@ -13,7 +13,11 @@ class CoreDataManager {
     
     static var shared = CoreDataManager()
     var calendar: Calendar?
-    var today: Day?
+    var today: Day? {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name("TodayChanged"), object: nil)
+        }
+    }
     
     func setupData() {
         let context = getContext()
@@ -42,8 +46,8 @@ class CoreDataManager {
     
     private func setupYears(years: NSEntityDescription, context: NSManagedObjectContext) {
         let currentYear = DateManager.getYear(date: Date())
-        let startDate = currentYear - 3
-        for yearNumber in 0..<6 {
+        let startDate = currentYear
+        for yearNumber in 0..<3 {
             let year = Year(entity: years, insertInto: context)
             year.setValue(startDate + yearNumber, forKeyPath: "number")
             do {
@@ -56,9 +60,14 @@ class CoreDataManager {
     }
     
     private func setupMonths(months: NSEntityDescription, days: NSEntityDescription, context: NSManagedObjectContext) {
-        guard let years = CoreDataManager.shared.calendar!.years.allObjects as? [Year] else {return}
-        for year in years {
-            for monthNumber in 0..<12 {
+        guard let unsortedYears = CoreDataManager.shared.calendar!.years.allObjects as? [Year], let years = DateManager.getSortedListOfYears(years: unsortedYears
+            ) else {return}
+        for (index, year) in years.enumerated() {
+            var startMonth = 1
+            if index == 0 {
+                startMonth = DateManager.getMonth(date: Date())
+            }
+            for monthNumber in (startMonth - 1)..<12 {
                 var monthName: MonthString?
                 monthName = DateManager.getMonthName(monthNumber: monthNumber)
                 let month = Month(entity: months, insertInto: context)

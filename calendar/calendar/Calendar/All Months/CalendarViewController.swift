@@ -70,6 +70,9 @@ class CalendarViewController: UIViewController {
     }
     
     private func setupText() {
+        if let dayObject = CalendarDataManager.shared.currentDay {
+            monthLabel.text = "\(dayObject.dateNumber) \(dayObject.month.name)"
+        }
     }
     
     private func setupDelegates() {

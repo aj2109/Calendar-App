@@ -39,7 +39,7 @@
 		052E2B20240AF2530094DE9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 052E2B1E240AF2530094DE9A /* LaunchScreen.storyboard */; };
 		052E2B2B240AF2540094DE9A /* calendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B2A240AF2540094DE9A /* calendarTests.swift */; };
 		052E2B36240AF2540094DE9A /* calendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B35240AF2540094DE9A /* calendarUITests.swift */; };
-		052E2B4B240AF4040094DE9A /* HomeSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B4A240AF4040094DE9A /* HomeSectionsViewController.swift */; };
+		052E2B4B240AF4040094DE9A /* HomeSectionPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B4A240AF4040094DE9A /* HomeSectionPagingViewController.swift */; };
 		052E2B4D240AF44A0094DE9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B4C240AF44A0094DE9A /* SettingsViewController.swift */; };
 		052E2B4F240AF4540094DE9A /* TodaySectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B4E240AF4540094DE9A /* TodaySectionViewController.swift */; };
 		052E2B51240AF4600094DE9A /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E2B50240AF4600094DE9A /* UpcomingEventsViewController.swift */; };
@@ -64,6 +64,8 @@
 		05FA84DB24141FF8009196F5 /* Months.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA84DA24141FF8009196F5 /* Months.swift */; };
 		05FA84DE24142816009196F5 /* Day+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA84DC24142816009196F5 /* Day+CoreDataClass.swift */; };
 		05FA84DF24142816009196F5 /* Day+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA84DD24142816009196F5 /* Day+CoreDataProperties.swift */; };
+		05FFD0D52494D5C200557D30 /* cat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 05FFD0D42494D5C100557D30 /* cat.gif */; };
+		05FFD0D72495491900557D30 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FFD0D62495491900557D30 /* StartupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +124,7 @@
 		052E2B31240AF2540094DE9A /* calendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		052E2B35240AF2540094DE9A /* calendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarUITests.swift; sourceTree = "<group>"; };
 		052E2B37240AF2540094DE9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		052E2B4A240AF4040094DE9A /* HomeSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionsViewController.swift; sourceTree = "<group>"; };
+		052E2B4A240AF4040094DE9A /* HomeSectionPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionPagingViewController.swift; sourceTree = "<group>"; };
 		052E2B4C240AF44A0094DE9A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		052E2B4E240AF4540094DE9A /* TodaySectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionViewController.swift; sourceTree = "<group>"; };
 		052E2B50240AF4600094DE9A /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,8 @@
 		05FA84DA24141FF8009196F5 /* Months.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Months.swift; sourceTree = "<group>"; };
 		05FA84DC24142816009196F5 /* Day+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataClass.swift"; sourceTree = "<group>"; };
 		05FA84DD24142816009196F5 /* Day+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		05FFD0D42494D5C100557D30 /* cat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = cat.gif; path = calendar/Assets.xcassets/cat.dataset/cat.gif; sourceTree = SOURCE_ROOT; };
+		05FFD0D62495491900557D30 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,7 @@
 		050A8EF82416DDD900672735 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				05FFD0D42494D5C100557D30 /* cat.gif */,
 				050A8F082416DDE800672735 /* Roboto-Black.ttf */,
 				050A8F052416DDE800672735 /* Roboto-BlackItalic.ttf */,
 				050A8EFA2416DDE700672735 /* Roboto-Bold.ttf */,
@@ -336,7 +341,7 @@
 		052E2B47240AF3570094DE9A /* HomeSections */ = {
 			isa = PBXGroup;
 			children = (
-				052E2B4A240AF4040094DE9A /* HomeSectionsViewController.swift */,
+				052E2B4A240AF4040094DE9A /* HomeSectionPagingViewController.swift */,
 				052E2B76240B21790094DE9A /* AvatarCollectionViewCell.swift */,
 			);
 			path = HomeSections;
@@ -356,6 +361,7 @@
 				052E2B10240AF2510094DE9A /* AppDelegate.swift */,
 				052E2B16240AF2510094DE9A /* Main.storyboard */,
 				052E2B74240B1D6B0094DE9A /* SetupViewController.swift */,
+				05FFD0D62495491900557D30 /* StartupViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				050A8F0A2416DDE800672735 /* Roboto-BoldCondensed.ttf in Resources */,
 				050A8F0E2416DDE800672735 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				050A8F172416DDE800672735 /* Roboto-Thin.ttf in Resources */,
+				05FFD0D52494D5C200557D30 /* cat.gif in Resources */,
 				050A8F1A2416DDE800672735 /* Roboto-Medium.ttf in Resources */,
 				050A8F162416DDE800672735 /* Roboto-BlackItalic.ttf in Resources */,
 				050A8F152416DDE800672735 /* Roboto-Light.ttf in Resources */,
@@ -562,13 +569,14 @@
 				054CB1BE241418E70060C644 /* Year+CoreDataProperties.swift in Sources */,
 				05E9C6A8241307A900579AD7 /* DayCell.swift in Sources */,
 				054CB1C82414190A0060C644 /* Calendar+CoreDataProperties.swift in Sources */,
-				052E2B4B240AF4040094DE9A /* HomeSectionsViewController.swift in Sources */,
+				052E2B4B240AF4040094DE9A /* HomeSectionPagingViewController.swift in Sources */,
 				054CB1CE2414190A0060C644 /* Event+CoreDataProperties.swift in Sources */,
 				0515DACD2419900500979117 /* MonthsDelegate.swift in Sources */,
 				052E2B4D240AF44A0094DE9A /* SettingsViewController.swift in Sources */,
 				05FA84DB24141FF8009196F5 /* Months.swift in Sources */,
 				0515DACF2419900D00979117 /* MonthsDataSource.swift in Sources */,
 				05FA84DE24142816009196F5 /* Day+CoreDataClass.swift in Sources */,
+				05FFD0D72495491900557D30 /* StartupViewController.swift in Sources */,
 				054CB1BD241418E70060C644 /* Year+CoreDataClass.swift in Sources */,
 				052E2B1B240AF2510094DE9A /* calendar.xcdatamodeld in Sources */,
 				054CB1CA2414190A0060C644 /* Month+CoreDataProperties.swift in Sources */,
@@ -750,9 +758,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = U5FH5JR68H;
+				DEVELOPMENT_TEAM = 8F6KZYT5C8;
 				INFOPLIST_FILE = calendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -760,7 +768,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pagesuite.core;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = WildCard;
+				PROVISIONING_PROFILE_SPECIFIER = "Generic New 2018";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -770,9 +778,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = U5FH5JR68H;
+				DEVELOPMENT_TEAM = 8F6KZYT5C8;
 				INFOPLIST_FILE = calendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -780,7 +788,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pagesuite.core;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = WildCard;
+				PROVISIONING_PROFILE_SPECIFIER = "Generic New 2018";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

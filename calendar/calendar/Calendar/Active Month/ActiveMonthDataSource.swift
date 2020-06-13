@@ -22,7 +22,9 @@ class ActiveMonthDataSource: NSObject, UICollectionViewDataSource {
         if
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? DayCell,
             let monthCollectionView = collectionView as? MonthCollectionView,
-            let day = monthCollectionView.month?.days.allObjects[indexPath.row] as? Day {
+            let days = monthCollectionView.month?.days.allObjects as? [Day],
+            let sortedDays = DateManager.getSortedListOfDays(days: days),
+            let day = sortedDays[indexPath.row] as Day? {
             cell.dateLabel.text = "\(indexPath.row + 1)"
             cell.day = day
             if DateManager.checkIfToday(day: day) {

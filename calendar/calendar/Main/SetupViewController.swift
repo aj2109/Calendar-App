@@ -20,16 +20,12 @@ class SetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayName.delegate = self
-        if let _ = UserDefaults.standard.value(forKey: "NameChoice") {
-            presentHomeVC()
-        }
     }
     
     private func presentHomeVC() {
         DispatchQueue.main.async {
-            let homeSectionsViewController = HomeSectionsViewController()
-            homeSectionsViewController.modalPresentationStyle = .fullScreen
-            self.present(homeSectionsViewController, animated: true)
+            let homeSectionsViewController = HomeSectionPagingViewController()
+            self.navigationController?.pushViewController(homeSectionsViewController, animated: true)
         }
     }
     

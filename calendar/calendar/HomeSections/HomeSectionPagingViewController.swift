@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeSectionsViewController: UIViewController {
+class HomeSectionPagingViewController: UIViewController {
     
     lazy var sections: [UIViewController] = {
         if
@@ -73,7 +73,7 @@ class HomeSectionsViewController: UIViewController {
     
 }
 
-extension HomeSectionsViewController: UIPageViewControllerDelegate {
+extension HomeSectionPagingViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed, finished, let currentVC = pageViewController.viewControllers?.last, let currentIndex = sections.firstIndex(of: currentVC) {
@@ -85,7 +85,7 @@ extension HomeSectionsViewController: UIPageViewControllerDelegate {
     
 }
 
-extension HomeSectionsViewController: UIPageViewControllerDataSource {
+extension HomeSectionPagingViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard index > 0 else {return nil}

@@ -35,7 +35,7 @@ class MonthCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             label.heightAnchor.constraint(equalToConstant: 40),
-            label.widthAnchor.constraint(equalToConstant: 200),
+            label.widthAnchor.constraint(equalToConstant: 300),
             label.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         label.textAlignment = .center

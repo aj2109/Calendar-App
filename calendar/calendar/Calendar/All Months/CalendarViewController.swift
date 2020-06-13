@@ -55,18 +55,14 @@ class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDates()
         setupText()
         setupDelegates()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name("reloadTable"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dateChanged), name: NSNotification.Name("dateChanged"), object: nil)
     }
     
-    private func setupDates() {
-        CoreDataManager.shared.setupData()
-        let yearAndMonth = DateManager.getCurrentYearAndMonthObject()
-        CalendarDataManager.shared.currentYear = yearAndMonth.0
-        CalendarDataManager.shared.currentMonth = yearAndMonth.1
-        DateManager.todaysDate = Date()
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupText() {
@@ -95,6 +91,10 @@ class CalendarViewController: UIViewController {
     
     @objc private func reloadTable() {
         tableView.reloadData()
+        setupText()
+    }
+    
+    @objc private func dateChanged() {
         setupText()
     }
     

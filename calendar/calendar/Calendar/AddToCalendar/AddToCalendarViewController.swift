@@ -30,8 +30,8 @@ class AddToCalendarViewController: UIViewController {
             }
             event.important = important.isOn
             do {
-                try CoreDataManager.shared.getContext().save()
                 calendar.addEvent(event: event)
+                try CoreDataManager.shared.getContext().save()
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }

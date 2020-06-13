@@ -11,16 +11,53 @@ import CoreData
 
 class CoreDataManager {
     
-    static var shared = CoreDataManager()
     var calendar: Calendar?
-    var today: Day? {
-        didSet {
-            NotificationCenter.default.post(name: Notification.Name("TodayChanged"), object: nil)
+    var today: Day?
+    static var shared = CoreDataManager()
+    lazy var context: NSManagedObjectContext = {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    }()
+    
+    func initialiseData() {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Calendar")
+        do {
+            if let loadedCalendar = try context.fetch(fetchRequest).first as? Calendar {
+                if existingCalendarYearIsCorrect(calendar: loadedCalendar) {
+                    CoreDataManager.shared.calendar = loadedCalendar
+                    setupToday(calendar: loadedCalendar)
+                }
+            } else {
+                setupData()
+            }
+        } catch {
+            setupData()
         }
     }
     
-    func setupData() {
-        let context = getContext()
+    private func setupToday(calendar: Calendar) {
+        for year in (calendar.years.allObjects as! [Year]) {
+            for month in (year.months.allObjects as! [Month]) {
+                for day in (month.days.allObjects as! [Day]) {
+                    if DateManager.checkIfToday(day: day) {
+                        CoreDataManager.shared.today = day
+                        CalendarDataManager.shared.currentDay = day
+                        CalendarDataManager.shared.currentMonth = month
+                        CalendarDataManager.shared.currentYear = year
+                        CoreDataManager.shared.calendar = calendar
+                    }
+                }
+            }
+        }
+    }
+    
+    private func existingCalendarYearIsCorrect(calendar: Calendar) -> Bool {
+        guard let year = DateManager.getSortedListOfYears(years: calendar.years.allObjects)?.first else {
+            return false
+        }
+        return DateManager.checkIfThisYear(year: year)
+    }
+    
+    private func setupData() {
         guard
             let calendarDescription = NSEntityDescription.entity(forEntityName: "Calendar", in: context),
             let yearsDescription = NSEntityDescription.entity(forEntityName: "Year", in: context),
@@ -96,7 +133,11 @@ class CoreDataManager {
             day.dateNumber = Int64(number + 1)
             month.addToDays(day)
             if DateManager.checkIfToday(day: day) {
-                self.today = day
+                CalendarDataManager.shared.currentYear = year
+                CalendarDataManager.shared.currentMonth = month
+                CalendarDataManager.shared.currentDay = day
+                today = day
+                NotificationCenter.default.post(Notification(name: Notification.Name("dateChanged")))
             }
         }
         do {

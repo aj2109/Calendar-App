@@ -46,11 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
-    func loadContext() {
-        let context = persistentContainer.viewContext
-        context.
-    }
 
 }
 

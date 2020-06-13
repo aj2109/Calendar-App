@@ -130,6 +130,24 @@ struct DateManager {
         }
     }
     
+    static func checkIfThisMonth(month: Month) -> Bool {
+        if
+            month.monthNumber == Foundation.Calendar.current.component(.month, from: Date()),
+            month.year.number == Foundation.Calendar.current.component(.year, from: Date()) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func checkIfThisYear(year: Year) -> Bool {
+        if year.number == Foundation.Calendar.current.component(.year, from: Date()) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     static func getSortedListOfDays(days: [Any]) -> [Day]? {
         if let days = days as? [Day] {
             return days.sorted(by: { (dayOne, dayTwo) -> Bool in

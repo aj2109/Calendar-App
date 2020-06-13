@@ -15,7 +15,7 @@
         <!--Setup View Controller-->
         <scene sceneID="ab2-nc-8aF">
             <objects>
-                <viewController id="RGM-LN-FMu" customClass="SetupViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupVC" id="RGM-LN-FMu" customClass="SetupViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fkZ-X8-7fF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

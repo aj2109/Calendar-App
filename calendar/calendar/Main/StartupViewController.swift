@@ -10,17 +10,16 @@ import UIKit
 
 class StartupViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        CoreDataManager.shared.initialiseData()
         if let _ = UserDefaults.standard.value(forKey: "NameChoice") {
             let homeSectionsViewController = HomeSectionPagingViewController()
             self.navigationController?.pushViewController(homeSectionsViewController, animated: false)
         } else {
-            let setupViewController = SetupViewController()
-            addChild(setupViewController)
-            setupViewController.modalPresentationStyle = .fullScreen
-            self.navigationController?.pushViewController(setupViewController, animated: false)
+            let setupSB = UIStoryboard(name: "Main", bundle: .main) as UIStoryboard
+            let setupVC = setupSB.instantiateViewController(identifier: "SetupVC")
+            self.navigationController?.pushViewController(setupVC, animated: false)
         }
     }
     

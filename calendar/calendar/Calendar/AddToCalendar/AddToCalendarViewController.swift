@@ -13,10 +13,26 @@ class AddToCalendarViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var titleField: UITextField!
-    @IBOutlet weak var descriptField: UITextField!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var important: UISwitch!
+    var timeFromDate: Date?
+    var timeToDate: Date?
+    var timeFromString: String?
+    var timeToString: String?
     
+    @IBAction func timeFromSelected(_ sender: UIDatePicker) {
+        let time = Foundation.Calendar.current.dateComponents([.hour, .minute], from: sender.date)
+        if let hour = time.hour, let minute = time.minute {
+            timeFromString = "\(hour):\(minute)"
+        }
+    }
+    
+    @IBAction func timeToSelected(_ sender: UIDatePicker) {
+        let time = Foundation.Calendar.current.dateComponents([.hour, .minute], from: sender.date)
+        if let hour = time.hour, let minute = time.minute {
+            timeToString = "\(hour):\(minute)"
+        }
+    }
     
     @IBAction func okButtonPressed(_ sender: Any) {
         if let calendar = parent as? CalendarViewController {
@@ -24,9 +40,9 @@ class AddToCalendarViewController: UIViewController {
             let event = Event(entity: dayDescription, insertInto: CoreDataManager.shared.getContext())
             if let titleFieldText = titleField.text {
                 event.title = titleFieldText
-            }
-            if let descriptFieldText = descriptField.text {
-                event.descript = descriptFieldText
+                if let timeFromString = timeFromString, let timeToString = timeToString {
+                    event.descript = "\(timeFromString)0-\(timeToString)0"
+                }
             }
             event.important = important.isOn
             do {
@@ -43,9 +59,7 @@ class AddToCalendarViewController: UIViewController {
         calendar.blockerView.alpha = 0
         self.view.alpha = 0
         titleField.text = ""
-        descriptField.text = ""
         titleField.resignFirstResponder()
-        descriptField.resignFirstResponder()
         important.isOn = true
     }
     

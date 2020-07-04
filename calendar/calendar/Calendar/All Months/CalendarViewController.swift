@@ -46,8 +46,8 @@ class CalendarViewController: UIViewController {
         NSLayoutConstraint.activate([
             vc.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             vc.view.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            vc.view.heightAnchor.constraint(equalToConstant: 300),
-            vc.view.widthAnchor.constraint(equalToConstant: 400)
+            vc.view.heightAnchor.constraint(equalToConstant: 375),
+            vc.view.widthAnchor.constraint(equalToConstant: 600)
         ])
         vc.view.layer.cornerRadius = 5
         return vc

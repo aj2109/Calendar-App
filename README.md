@@ -1,4 +1,4 @@
-Calendar App!
+Hi! This is my Calendar App. 
 
 App screen recording link:
 https://drive.google.com/file/d/1d4miBR0MtDMlwqO7slhKdU9HSc1euZzb/view?usp=sharing

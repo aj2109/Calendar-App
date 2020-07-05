@@ -7,10 +7,71 @@
 //
 
 import UIKit
+import EventKit
 
 struct DateManager {
     
     static var todaysDate = Date()
+    
+    static var eventStore = EKEventStore()
+    
+    static func addToEKEventStore(event: Event, completion: @escaping () -> ()) {
+        eventStore.requestAccess(to: .event) { (access, error) in
+            if let error = error {
+                print("Calendar saving FAILED: \(error)!")
+            } else if access {
+                let ekEvent = EKEvent(eventStore: eventStore)
+                ekEvent.startDate = event.fromDate
+                ekEvent.endDate = event.toDate
+                ekEvent.title = event.title
+                ekEvent.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(ekEvent, span: .thisEvent)
+                    completion()
+                } catch let error as NSError {
+                    completion()
+                    print("Calendar saving FAILED on do try: \(error)")
+                }
+                print("successfully saved event in calendar :D!")
+            } else {
+                completion()
+                print("Calendar saving FAILED: access = false!")
+            }
+        }
+    }
+    
+    static func getDateFromDay(day: Day) -> Date? {
+        let month = day.month
+        let year = month.year
+        var dateComponents = DateComponents()
+        dateComponents.year = Int(year.number)
+        dateComponents.month = Int(month.monthNumber)
+        dateComponents.day = Int(day.dateNumber)
+        if let date = Foundation.Calendar.current.date(from: dateComponents) {
+            return date
+        } else {
+            return nil
+        }
+    }
+    
+    static func addTimeToDate(date: Date, additionalDateComponents: DateComponents) -> Date? {
+        var dateComponents = Foundation.Calendar.current.dateComponents([.year,.month,.day], from: date)
+        if let hour = additionalDateComponents.hour, let minute = additionalDateComponents.minute {
+            dateComponents.hour = hour
+            dateComponents.minute = minute
+            return Foundation.Calendar.current.date(from: dateComponents)
+        } else {
+            return nil
+        }
+    }
+    
+    static func createFullDateFromCurrentDay(dateComponents: DateComponents) -> Date? {
+        if let currentDay = CalendarDataManager.shared.currentDay, let date = getDateFromDay(day: currentDay) {
+            return addTimeToDate(date: date, additionalDateComponents: dateComponents)
+        } else {
+            return nil
+        }
+    }
     
     static func workoutDaysInaMonth(year: Int, month: Int) -> Int {
         let dateComponents = DateComponents(year: year, month: month)

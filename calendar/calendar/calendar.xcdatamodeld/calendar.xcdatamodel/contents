@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Calendar" representedClassName="Calendar" syncable="YES">
         <relationship name="years" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Year" inverseName="calendar" inverseEntity="Year"/>
     </entity>
@@ -11,8 +11,10 @@
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="descript" optional="YES" attributeType="String"/>
+        <attribute name="fromDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="toDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="events" inverseEntity="Day"/>
     </entity>
     <entity name="Month" representedClassName="Month" syncable="YES">
@@ -29,7 +31,7 @@
     <elements>
         <element name="Calendar" positionX="-27" positionY="54" width="128" height="58"/>
         <element name="Day" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Month" positionX="-54" positionY="-9" width="128" height="103"/>
         <element name="Year" positionX="-45" positionY="27" width="128" height="88"/>
     </elements>

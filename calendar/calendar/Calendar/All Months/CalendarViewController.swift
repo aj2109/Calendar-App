@@ -36,7 +36,8 @@ class CalendarViewController: UIViewController {
     }()
     
     lazy var eventSelectViewController: AddToCalendarViewController = {
-        guard let sb = UIStoryboard(name: "CalendarViewController", bundle: .main) as UIStoryboard?,
+        guard
+            let sb = UIStoryboard(name: "CalendarViewController", bundle: .main) as UIStoryboard?,
             let vc = sb.instantiateViewController(identifier: "AddToCalendar") as? AddToCalendarViewController else {
                 return AddToCalendarViewController()
         }

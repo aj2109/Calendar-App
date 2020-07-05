@@ -20,4 +20,5 @@ class CalendarDataManager {
     var currentMonth: Month!
     var currentDay: Day?
     var selectedDayIndex: Int?
+    
 }

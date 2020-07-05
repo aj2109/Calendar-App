@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cy-ci-WSC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3cy-ci-WSC">
     <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -289,6 +289,8 @@
                         <outlet property="important" destination="qtp-w9-rZ9" id="D4h-NI-n6S"/>
                         <outlet property="label" destination="WOu-cp-YKE" id="lro-6p-0rb"/>
                         <outlet property="okButton" destination="QPB-JX-W1z" id="Ox6-IR-Wte"/>
+                        <outlet property="timeFromSelector" destination="Udd-kN-o8A" id="Tn4-wc-3au"/>
+                        <outlet property="timeToSelector" destination="RVb-HE-WfO" id="D6c-wO-UVn"/>
                         <outlet property="titleField" destination="A0P-7i-8JE" id="qan-db-q4X"/>
                     </connections>
                 </viewController>

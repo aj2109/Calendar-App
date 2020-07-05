@@ -89,8 +89,8 @@
             filePath = "calendar/DataManager/DateManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "getPreviousYearAndMonthObject(currentYear:currentMonth:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -307,7 +307,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7ABD34D0-3145-41A0-8043-2EBA26830CD2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "calendar/DataManager/CoreDataManager.swift"
@@ -323,7 +323,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D4108DCB-AFF7-4F7A-8D3F-FA70CD9E9E34"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "calendar/DataManager/CoreDataManager.swift"
@@ -332,22 +332,6 @@
             startingLineNumber = "42"
             endingLineNumber = "42"
             landmarkName = "setupToday(calendar:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "82BFCF3D-AB12-4895-9101-E219E4E160FE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "calendar/Calendar/All Months/CalendarViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "addEvent(event:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -111,7 +111,7 @@
 		0515DACC2419900500979117 /* MonthsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsDelegate.swift; sourceTree = "<group>"; };
 		0515DACE2419900D00979117 /* MonthsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsDataSource.swift; sourceTree = "<group>"; };
 		0515DAD0241994FF00979117 /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
-		052E2B0D240AF2510094DE9A /* calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		052E2B0D240AF2510094DE9A /* Pocket Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		052E2B10240AF2510094DE9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		052E2B17240AF2510094DE9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		052E2B1A240AF2510094DE9A /* calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = calendar.xcdatamodel; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 		052E2B0E240AF2510094DE9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				052E2B0D240AF2510094DE9A /* calendar.app */,
+				052E2B0D240AF2510094DE9A /* Pocket Calendar.app */,
 				052E2B26240AF2540094DE9A /* calendarTests.xctest */,
 				052E2B31240AF2540094DE9A /* calendarUITests.xctest */,
 			);
@@ -418,7 +418,7 @@
 			);
 			name = calendar;
 			productName = calendar;
-			productReference = 052E2B0D240AF2510094DE9A /* calendar.app */;
+			productReference = 052E2B0D240AF2510094DE9A /* Pocket Calendar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		052E2B25240AF2540094DE9A /* calendarTests */ = {
@@ -767,7 +767,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pagesuite.core;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pocket Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = WildCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -787,7 +787,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pagesuite.core;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pocket Calendar";
 				PROVISIONING_PROFILE_SPECIFIER = WildCard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

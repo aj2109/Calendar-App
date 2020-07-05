@@ -21,5 +21,7 @@ extension Event {
     @NSManaged public var important: Bool
     @NSManaged public var title: String
     @NSManaged public var day: Day
+    @NSManaged public var fromDate: Date
+    @NSManaged public var toDate: Date
 
 }

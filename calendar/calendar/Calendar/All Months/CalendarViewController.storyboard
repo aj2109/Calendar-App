@@ -11,7 +11,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="QjF-Ig-rwL">
             <objects>
-                <viewController id="3cy-ci-WSC" customClass="CalendarViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3cy-ci-WSC" customClass="CalendarViewController" customModule="Pocket_Calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4m-Mq-e4n">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="20" y="90" width="770" height="498"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CalendarEventsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalendarEventsCell" textLabel="kXU-t3-LBP" detailTextLabel="L0E-7i-fVE" style="IBUITableViewCellStyleSubtitle" id="gTr-AB-rL9" customClass="CalendarEventsCell" customModule="calendar" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CalendarEventsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalendarEventsCell" textLabel="kXU-t3-LBP" detailTextLabel="L0E-7i-fVE" style="IBUITableViewCellStyleSubtitle" id="gTr-AB-rL9" customClass="CalendarEventsCell" customModule="Pocket_Calendar" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="770" height="55.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTr-AB-rL9" id="wDw-xS-lBx">
@@ -99,7 +99,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="ut3-5Z-4Ue" customClass="MonthCell" customModule="calendar" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="ut3-5Z-4Ue" customClass="MonthCell" customModule="Pocket_Calendar" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P6s-dD-UGk">
@@ -147,27 +147,27 @@
         <!--Add To Calendar View Controller-->
         <scene sceneID="TfD-F8-woU">
             <objects>
-                <viewController storyboardIdentifier="AddToCalendar" id="u2N-12-vwM" customClass="AddToCalendarViewController" customModule="calendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddToCalendar" id="u2N-12-vwM" customClass="AddToCalendarViewController" customModule="Pocket_Calendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dxi-8n-nUB">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's happening" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0P-7i-8JE">
-                                <rect key="frame" x="20" y="76" width="770" height="50"/>
+                                <rect key="frame" x="202.5" y="66" width="405" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="q0J-X4-c99"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-cp-YKE">
-                                <rect key="frame" x="334" y="20" width="142" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-cp-YKE">
+                                <rect key="frame" x="235.5" y="15" width="339" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPB-JX-W1z">
-                                <rect key="frame" x="305" y="216" width="200" height="50"/>
+                                <rect key="frame" x="305" y="308" width="200" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hhs-K1-wvj"/>
@@ -187,19 +187,11 @@
                                     <action selector="okButtonPressed:" destination="u2N-12-vwM" eventType="touchUpInside" id="1C6-wH-qVf"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2AU-Ay-Mqa">
-                                <rect key="frame" x="20" y="146" width="770" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="aKu-Aa-6zZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNZ-2t-aUM">
-                                <rect key="frame" x="484" y="0.0" width="306" height="76"/>
+                                <rect key="frame" x="582.5" y="0.0" width="25" height="66"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtp-w9-rZ9">
-                                        <rect key="frame" x="128.5" y="22.5" width="51" height="31"/>
+                                        <rect key="frame" x="-22" y="17.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="importantPressed:" destination="u2N-12-vwM" eventType="valueChanged" id="xF9-ZM-TeH"/>
                                         </connections>
@@ -208,36 +200,97 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qtp-w9-rZ9" firstAttribute="centerY" secondItem="MNZ-2t-aUM" secondAttribute="centerY" id="2jL-iX-XpQ"/>
-                                    <constraint firstItem="qtp-w9-rZ9" firstAttribute="centerX" secondItem="MNZ-2t-aUM" secondAttribute="centerX" id="Jig-ZP-HNh"/>
+                                    <constraint firstItem="qtp-w9-rZ9" firstAttribute="centerX" secondItem="MNZ-2t-aUM" secondAttribute="centerX" constant="-10" id="Jig-ZP-HNh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ0-fx-KjS">
+                                <rect key="frame" x="20" y="131" width="770" height="146"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="20" translatesAutoresizingMaskIntoConstraints="NO" id="Udd-kN-o8A">
+                                        <rect key="frame" x="357.5" y="8" width="140" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ImE-Dt-vhd"/>
+                                            <constraint firstAttribute="width" constant="140" id="R2t-gl-OhV"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="timeFromSelected:" destination="u2N-12-vwM" eventType="valueChanged" id="arf-yL-haj"/>
+                                            <action selector="timeSelected:" destination="xcd-SH-XRV" eventType="valueChanged" id="s2E-cL-sAO"/>
+                                        </connections>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-gX-Hws">
+                                        <rect key="frame" x="272.5" y="7.5" width="75" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="4YB-u7-Cek"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="20" translatesAutoresizingMaskIntoConstraints="NO" id="RVb-HE-WfO">
+                                        <rect key="frame" x="357.5" y="76" width="140" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ccY-sT-9pp"/>
+                                            <constraint firstAttribute="width" constant="140" id="pRO-fC-ChL"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="timeSelected:" destination="xcd-SH-XRV" eventType="valueChanged" id="EeF-W1-6hq"/>
+                                            <action selector="timeToSelected:" destination="u2N-12-vwM" eventType="valueChanged" id="Wd4-xZ-42e"/>
+                                        </connections>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwt-ZC-yvJ">
+                                        <rect key="frame" x="272.5" y="76" width="75" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="lZo-Kx-A2J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Udd-kN-o8A" firstAttribute="top" secondItem="mJ0-fx-KjS" secondAttribute="top" constant="8" id="CJr-WQ-NUI"/>
+                                    <constraint firstItem="Hwt-ZC-yvJ" firstAttribute="centerY" secondItem="RVb-HE-WfO" secondAttribute="centerY" id="Igv-3E-apL"/>
+                                    <constraint firstItem="O3C-gX-Hws" firstAttribute="height" secondItem="Udd-kN-o8A" secondAttribute="height" multiplier="1.01667" id="eL2-MO-rdH"/>
+                                    <constraint firstAttribute="bottom" secondItem="RVb-HE-WfO" secondAttribute="bottom" constant="10" id="fUh-1M-Atf"/>
+                                    <constraint firstItem="Udd-kN-o8A" firstAttribute="leading" secondItem="O3C-gX-Hws" secondAttribute="trailing" constant="10" id="khM-3C-9lW"/>
+                                    <constraint firstItem="Hwt-ZC-yvJ" firstAttribute="height" secondItem="RVb-HE-WfO" secondAttribute="height" id="m8E-qk-460"/>
+                                    <constraint firstItem="RVb-HE-WfO" firstAttribute="top" secondItem="Udd-kN-o8A" secondAttribute="bottom" constant="8" id="uYD-UK-zvE"/>
+                                    <constraint firstItem="O3C-gX-Hws" firstAttribute="centerY" secondItem="Udd-kN-o8A" secondAttribute="centerY" id="w7P-ai-USb"/>
+                                    <constraint firstItem="RVb-HE-WfO" firstAttribute="leading" secondItem="Hwt-ZC-yvJ" secondAttribute="trailing" constant="10" id="wLX-jc-Clr"/>
+                                    <constraint firstItem="Hwt-ZC-yvJ" firstAttribute="centerX" secondItem="O3C-gX-Hws" secondAttribute="centerX" id="yfW-9s-8kn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36216198900000002" green="0.61712790179999999" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="QPB-JX-W1z" firstAttribute="top" secondItem="mJ0-fx-KjS" secondAttribute="bottom" constant="31" id="1zA-mr-tPJ"/>
                             <constraint firstItem="QPB-JX-W1z" firstAttribute="centerX" secondItem="WOu-cp-YKE" secondAttribute="centerX" id="3D7-Qp-Osa"/>
-                            <constraint firstItem="WOu-cp-YKE" firstAttribute="top" secondItem="TYw-Dh-hqc" secondAttribute="top" constant="20" id="3kw-ct-Paj"/>
-                            <constraint firstItem="2AU-Ay-Mqa" firstAttribute="leading" secondItem="TYw-Dh-hqc" secondAttribute="leading" constant="20" id="3qf-Dh-s4S"/>
+                            <constraint firstItem="WOu-cp-YKE" firstAttribute="top" secondItem="TYw-Dh-hqc" secondAttribute="top" constant="15" id="3kw-ct-Paj"/>
                             <constraint firstItem="A0P-7i-8JE" firstAttribute="top" secondItem="MNZ-2t-aUM" secondAttribute="bottom" id="4aX-EP-tXJ"/>
                             <constraint firstItem="MNZ-2t-aUM" firstAttribute="top" secondItem="TYw-Dh-hqc" secondAttribute="top" id="8sJ-Yo-g8d"/>
+                            <constraint firstItem="mJ0-fx-KjS" firstAttribute="leading" secondItem="TYw-Dh-hqc" secondAttribute="leading" constant="20" id="995-my-K01"/>
                             <constraint firstItem="WOu-cp-YKE" firstAttribute="centerX" secondItem="Dxi-8n-nUB" secondAttribute="centerX" id="Axe-q1-5PY"/>
                             <constraint firstItem="A0P-7i-8JE" firstAttribute="centerX" secondItem="Dxi-8n-nUB" secondAttribute="centerX" id="DaE-Q6-FBm"/>
-                            <constraint firstItem="A0P-7i-8JE" firstAttribute="leading" secondItem="TYw-Dh-hqc" secondAttribute="leading" constant="20" id="E7m-8N-l6G"/>
                             <constraint firstItem="MNZ-2t-aUM" firstAttribute="trailing" secondItem="A0P-7i-8JE" secondAttribute="trailing" id="L2m-yl-tdn"/>
-                            <constraint firstItem="A0P-7i-8JE" firstAttribute="top" secondItem="WOu-cp-YKE" secondAttribute="bottom" constant="20" id="OJq-J2-uey"/>
-                            <constraint firstItem="2AU-Ay-Mqa" firstAttribute="top" secondItem="A0P-7i-8JE" secondAttribute="bottom" constant="20" id="aZb-b4-YaE"/>
+                            <constraint firstItem="A0P-7i-8JE" firstAttribute="top" secondItem="WOu-cp-YKE" secondAttribute="bottom" constant="15" id="OJq-J2-uey"/>
+                            <constraint firstItem="mJ0-fx-KjS" firstAttribute="centerX" secondItem="A0P-7i-8JE" secondAttribute="centerX" id="Vpe-uN-lBB"/>
+                            <constraint firstItem="A0P-7i-8JE" firstAttribute="width" secondItem="Dxi-8n-nUB" secondAttribute="width" multiplier="0.5" id="WCm-ty-whL"/>
                             <constraint firstItem="MNZ-2t-aUM" firstAttribute="leading" secondItem="WOu-cp-YKE" secondAttribute="trailing" constant="8" symbolic="YES" id="bLc-g2-qtQ"/>
-                            <constraint firstItem="QPB-JX-W1z" firstAttribute="top" secondItem="2AU-Ay-Mqa" secondAttribute="bottom" constant="20" id="jsd-Tn-Whe"/>
-                            <constraint firstItem="TYw-Dh-hqc" firstAttribute="trailing" secondItem="A0P-7i-8JE" secondAttribute="trailing" constant="20" id="qKw-mh-IkH"/>
-                            <constraint firstItem="TYw-Dh-hqc" firstAttribute="trailing" secondItem="2AU-Ay-Mqa" secondAttribute="trailing" constant="20" id="wKX-ba-x1v"/>
-                            <constraint firstItem="2AU-Ay-Mqa" firstAttribute="centerX" secondItem="A0P-7i-8JE" secondAttribute="centerX" id="z3B-dT-zUa"/>
+                            <constraint firstItem="mJ0-fx-KjS" firstAttribute="top" secondItem="A0P-7i-8JE" secondAttribute="bottom" constant="15" id="isI-s1-usp"/>
+                            <constraint firstItem="MNZ-2t-aUM" firstAttribute="leading" secondItem="A0P-7i-8JE" secondAttribute="trailing" constant="-25" id="kCR-uR-Lqw"/>
+                            <constraint firstItem="O3C-gX-Hws" firstAttribute="centerX" secondItem="A0P-7i-8JE" secondAttribute="centerX" constant="-75" id="oao-kS-f16"/>
+                            <constraint firstItem="TYw-Dh-hqc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QPB-JX-W1z" secondAttribute="bottom" constant="15" id="tU9-31-9sp"/>
+                            <constraint firstItem="TYw-Dh-hqc" firstAttribute="trailing" secondItem="mJ0-fx-KjS" secondAttribute="trailing" constant="20" id="uVQ-vW-qcy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TYw-Dh-hqc"/>
                     </view>
                     <connections>
-                        <outlet property="descriptField" destination="2AU-Ay-Mqa" id="ijk-fC-E9N"/>
                         <outlet property="important" destination="qtp-w9-rZ9" id="D4h-NI-n6S"/>
                         <outlet property="label" destination="WOu-cp-YKE" id="lro-6p-0rb"/>
                         <outlet property="okButton" destination="QPB-JX-W1z" id="Ox6-IR-Wte"/>
+                        <outlet property="timeFromSelector" destination="Udd-kN-o8A" id="Tn4-wc-3au"/>
+                        <outlet property="timeToSelector" destination="RVb-HE-WfO" id="D6c-wO-UVn"/>
                         <outlet property="titleField" destination="A0P-7i-8JE" id="qan-db-q4X"/>
                     </connections>
                 </viewController>
